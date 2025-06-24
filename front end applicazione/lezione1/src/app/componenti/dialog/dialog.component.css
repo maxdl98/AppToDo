@@ -1,0 +1,8 @@
+.ContenutoNascosto{
+    filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease;
+
+}
+

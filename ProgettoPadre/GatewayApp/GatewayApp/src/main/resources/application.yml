@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: GatewayApp
+  cloud:
+    gateway:
+          routes:
+            - id: ProvaApp
+              uri: http://localhost:8082
+              predicates:
+                - Path=/**
+            - id: AppToDo
+              uri: http://localhost:8080
+              predicates:
+                - Path=/**
+server:
+  port: 8081
+

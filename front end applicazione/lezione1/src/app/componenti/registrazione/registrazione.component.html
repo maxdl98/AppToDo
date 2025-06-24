@@ -1,0 +1,31 @@
+<form [formGroup]="userForm" style="display: flex; flex-direction: column;"> 
+ <mat-form-field>
+  <mat-label>Nome</mat-label>
+  <input matInput type="text"  name="nome" formControlName="nome" >
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Email</mat-label>
+  <input matInput type="email"  name="email" formControlName="email" >
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Data di nascita</mat-label>
+  <input matInput type="date"  name="data" formControlName = "data">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Numero di telefono</mat-label>
+  <input matInput type="text"  name="numero" formControlName = "numero">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Password</mat-label>
+  <input matInput type="password"  name="password" formControlName = "password">
+</mat-form-field>
+
+
+
+<button class="button" mat-raised-button color="primary" (click)="onSubmit()">Invia</button>
+
+
+
+
+
+</form>

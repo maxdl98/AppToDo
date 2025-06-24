@@ -1,0 +1,20 @@
+# src/main/resources/db/changelog/changesets/02-add-data-creazione-to-materie.yaml
+
+databaseChangeLog:
+  - changeSet:
+      id: add-data-creazione-to-materie-table
+      author: Massimo De Luca # Metti il tuo nome o le tue iniziali qui
+
+      changes:
+        - addColumn:
+            tableName: materie_preferite
+            columns:
+              - column:
+                  name: data_creazione
+                  type: datetime # O timestamp, a seconda del tuo database
+                  constraints:
+                    nullable: false # Rende la colonna non nulla
+                  defaultValueComputed: CURRENT_TIMESTAMP # Imposta la data e ora corrente come valore predefinito
+
+      # Questo tag è opzionale, ma utile per descrivere cosa fa il changeset
+      comment: Aggiunta la colonna 'data_creazione' alla tabella 'materie_preferite' con valore predefinito CURRENT_TIMESTAMP.

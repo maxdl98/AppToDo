@@ -1,0 +1,27 @@
+<h1  style="text-align: center; font-size: 60px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Benvenuti nella To Do List</h1>
+<div> 
+<input class="taskInput"  [(ngModel)]="task" type = "text" placeholder="Scrivi il task"> 
+
+<button style="border-radius: 20px; padding: 6px;" [disabled]="task.length === 0"   (click)="aggiungiTask()"> Clicca qui </button>
+<ul class="lista"> 
+
+
+<li  [ngClass]="t.length> 4 ? 'verde' : 'arancione'" *ngFor="let t of tasks; let i = index">
+  <span  class="task-text">{{ t }}</span>
+  <span  class="actions">
+    <button class="moveUp" (click)="moveUp(i)" >Muovi su</button>
+    <button class="moveDown" (click)="moveDown(i)">Muovi giù</button>
+    <span (click)="rimuoviTask(i)" class="material-symbols-outlined">close</span>
+ 
+  </span>
+</li>
+
+
+
+
+
+</ul>
+
+
+</div>
+

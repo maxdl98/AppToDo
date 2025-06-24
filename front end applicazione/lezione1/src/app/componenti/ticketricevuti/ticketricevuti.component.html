@@ -1,0 +1,91 @@
+<app-nav> kl</app-nav>
+<table
+  mat-table
+  [dataSource]="dataSource"
+  [ngClass]="showForm == true ? 'sfocato' : 'nonsfocato'"
+  class="mat-elevation-z8 demo-table"
+>  <!-- Position Column -->
+
+
+ 
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="problematica">
+    <th mat-header-cell *matHeaderCellDef> Problematica </th>
+    <td mat-cell *matCellDef="let element"> {{element.problematica}} </td>
+  </ng-container>
+  
+ 
+  <!-- Weight Column -->
+  <ng-container matColumnDef="contenuto">
+    <th mat-header-cell *matHeaderCellDef> Contenuto </th>
+    <td mat-cell *matCellDef="let element"> {{element.contenuto}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="azioni">
+  <th mat-header-cell *matHeaderCellDef>  </th>
+  <td mat-cell *matCellDef="let element">
+    <button mat-raised-button color="primary" (click)="onAction(element)">Risolvi Ticket</button>
+  </td>
+</ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<form *ngIf="showForm" class="formTicket"> 
+  <!-- Contenitore intestazione -->
+<div style="display: flex; justify-content: space-between;">
+  <h3 style="margin: 0;">Sezione Utente</h3>
+  <i 
+    class="fa-solid fa-xmark" 
+    style="font-size: 30px; cursor: pointer;"
+    (click)="chiudiForm()"
+  ></i>
+</div>
+
+
+  <mat-form-field class="mt-2">
+  <mat-label>Problematica</mat-label>
+  <input matInput [ngModel]="selectedProblematica" name="problematica">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Email</mat-label>
+  <input matInput [ngModel]="selectedEmail" name="email">
+</mat-form-field>
+<mat-form-field class="mt-5 contenuto">
+  <mat-label>Contenuto ticket </mat-label>
+  <textarea [ngModel]="selectContenuto" name="contenuto" style="overflow: hidden;" class="w-100" matInput ></textarea>
+</mat-form-field>
+
+
+
+
+<!-- Sezione Operatore -->
+
+<div class="mt-5 sezioneOperatore"> 
+ <h3> Sezione Operatore </h3>
+  <mat-form-field>
+  <mat-label>Nome Operatore </mat-label>
+  <input matInput [(ngModel)]="nomeOperatore"  name="nomeOperatore">
+</mat-form-field>
+<mat-form-field class="risposta">
+  <mat-label>La tua risposta </mat-label>
+  <textarea [(ngModel)]="risposta" name="risposta" style="overflow: hidden; resize: none;" class="w-100" matInput ></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Libri disponibili in sede:</mat-label>
+  <mat-select [(ngModel)]="libroSelezionato" name="libro">
+    <mat-option  *ngFor="let libro of libriDisponibili" [value]="libro">
+      {{ libro }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<input (click)="inviaDati2()"  type="submit" class="buttonForm"> 
+</div>
+</form>

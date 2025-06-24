@@ -1,0 +1,47 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 600px;
+  height: 500px;
+  margin-top: 700px;
+  margin-left: 300px;
+}
+
+.formTicket{
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+   flex-direction: column; 
+   width: 699px;
+   background-color: grey;
+   margin-top: -1000px;
+   margin-left:750px;
+   width: 600px;
+   height: 900px;
+   padding: 30px;
+   z-index: 1000;
+}
+.sfocato{
+  filter: blur(5px);
+}
+
+
+.nonsfocato{
+  filter: none;
+}
+
+.sezioneOperatore{
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonForm{
+  width: 120px;
+  border-radius: 10px;
+  margin-left: 150px;
+  margin-top: 50px;
+}

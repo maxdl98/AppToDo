@@ -1,0 +1,30 @@
+.nav{
+  background-color: rgb(25, 135, 84,1);
+  height: 60px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 14px;
+  margin-top:8px;
+  cursor: pointer;
+   
+}
+
+
+.excel{
+  text-decoration: underline;
+    position: relative;
+    right: 33px;
+    top: 7px;
+    
+}
+
+.pdf{
+  text-decoration: underline;
+    position: relative;
+    right: 20px;
+    top: 7px;
+}

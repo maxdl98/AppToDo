@@ -1,0 +1,21 @@
+
+html,body{
+    height: 1000px;
+}
+
+
+.button2{
+    
+    width: 100px;
+    height: 100px;
+
+}
+
+input{
+    width: 100px;
+    height: 100px;
+}
+
+body{
+    background-color: rgb(167, 44, 44);
+}

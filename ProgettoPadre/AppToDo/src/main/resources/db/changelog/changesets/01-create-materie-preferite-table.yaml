@@ -1,0 +1,27 @@
+# src/main/resources/db/changelog/changesets/01-create-materie-preferite-table.yaml
+databaseChangeLog:
+  - changeSet:
+      id: 1 # Questo ID deve essere unico in tutto il tuo changelog master
+      author: il-tuo-nome # Il tuo nome o un identificativo del team
+      changes:
+        - createTable:
+            tableName: materie_preferite # Il nome della tabella nel database, deve corrispondere a @Table(name="materie_preferite")
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT # Tipo di dato per la chiave primaria
+                  autoIncrement: true # La chiave primaria si auto-incrementa
+                  constraints:
+                    primaryKey: true # È la chiave primaria
+                    nullable: false # Non può essere nullo
+              - column:
+                  name: nome_materia # Il nome della colonna nel DB (spesso si usa snake_case)
+                  type: VARCHAR(100) # Tipo di dato per il nome della materia
+                  constraints:
+                    unique: true # Ogni nome materia deve essere unico
+                    nullable: false # Non può essere nullo
+              - column:
+                  name: descrizione
+                  type: VARCHAR(500) # Un campo per una descrizione più lunga
+                  constraints:
+                    nullable: true # Questo campo può essere nullo

@@ -1,0 +1,98 @@
+
+
+div{
+   position : absolute;
+    margin-top: 119px;
+    margin-left: 460px;
+
+}
+
+.taskInput{
+    border-radius: 15px;
+    width: 420px;
+    height: 30px;
+   
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+/* .moveUp {
+  margin-right: 8px;
+} */
+
+li.evidenziato{
+    margin-top: 20px;
+    width: 800px;
+    height: 30px;
+    list-style: none;
+
+}
+
+.spunta {
+  color: green;
+  margin-right: 8px;
+  font-weight: bold;
+  width: 80px;
+}
+
+.verde {
+  background-color: green;
+  color: white;
+  margin-top: 20px;
+  height: 35px;
+  border-radius: 20px;
+   padding-left: 10px;
+
+}
+
+.arancione {
+  background-color: orange;
+  color: white;
+  margin-top: 20px;
+  height: 35px;
+  border-radius: 20px;
+  padding-left: 10px;
+  
+}
+
+.material-symbols-outlined{
+  cursor: pointer;
+
+}
+
+.moveUp{
+ width: 80px;
+ border-radius: 20px;
+ height: 20px;
+ margin-left: 300px;
+}
+
+.moveDown{
+ border-radius: 20px;
+ height: 20px;
+ width: 80px;
+}
+
+.check{
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+
+.changeColor{
+  background-color: rgb(23, 23, 63);
+  text-decoration: line-through;
+}
+
+
+button{
+  margin-left: 10px;
+ }

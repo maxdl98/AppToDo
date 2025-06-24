@@ -1,0 +1,25 @@
+
+body{
+    background-color: black;
+}
+
+
+form{
+    width: 400px;
+    position: absolute;
+    left: 600px;
+    top: 300px;
+}
+
+.button{
+    width: 120px;
+    border-radius: 20px;
+    height: 30px;
+    position: relative;
+    left: 110px;
+}
+
+.button:hover{
+    background-color: hotpink;
+    cursor: pointer;
+}

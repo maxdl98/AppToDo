@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: rollback-add-data-creazione
+      author: Massimo De Luca
+      changes:
+        - dropColumn:
+            columnName: data_creazione
+            tableName: materie_preferite
+      comment: Rimozione della colonna 'data_creazione' dalla tabella 'materie_preferite'

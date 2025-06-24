@@ -1,0 +1,70 @@
+
+.formTicket{
+    width: 300px;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.opzioniServizi{
+    background-color: white;
+}
+
+.formIntero{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 600px;
+    margin-top: 50px;
+}
+
+.contenuto{
+    width: 800px;
+    height: 400px;
+    
+}
+
+.invia{
+    background-color: grey;
+    width: 180px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-left: 140px;
+}
+
+.info{
+     width: 623px;
+    height: 234px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    border-radius: 20px;
+     position: relative;
+    left: 691px;
+    top: -300px;
+    z-index: 1000;
+    padding: 28px;
+
+
+}
+
+.buttonTicket{
+    width: 160px;
+    position: relative;
+    left: 158px;
+    top: 21px;
+    border-radius: 20px;
+}
+
+
+.sfocato{
+    filter: blur(5px);
+}
+
+.nonsfocato{
+    filter: none;
+}

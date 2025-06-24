@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-data-creazione-to-materie-preferite-2
+      author: massimo
+      changes:
+        - addColumn:
+            tableName: materie_preferite
+            columns:
+              - column:
+                  name: data_creazione
+                  type: datetime
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: CURRENT_TIMESTAMP
+      comment: "Ri-aggiunta della colonna data_creazione alla tabella materie_preferite"

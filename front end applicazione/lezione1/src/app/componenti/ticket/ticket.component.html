@@ -1,0 +1,35 @@
+<nav class="d-flex flex-row nav bg-dark p-2 align-items-center">
+    <i class="fa-solid fa-house text-light ms-3 fs-5" style="cursor: pointer;" (click)="onHome()"></i>
+
+  <span (click)="goComponent2()" class="ms-5 text-light fs-5 newtick" style="cursor: pointer;">
+    New Ticket
+  </span>
+
+  <div class="dropdown ms-5">
+    <span class="fs-5 text-light tickets" (mouseenter)="mostraTicks()" style="cursor: pointer;">
+      Ticket
+      <span class="sf-sub-indicator">▼</span>
+    </span>
+
+    <div *ngIf="mostra" class="position-absolute bg-white mt-2 p-2 rounded shadow" style="left: 40px;">
+      <p class="text-dark chiusi m-0" (click)="toTicketChiusi()" style="cursor: pointer;">
+        Tickets Chiusi
+      </p>
+    </div>
+  </div>
+
+  <span class="text-light ms-5 fs-6">Email: {{ emailUtente }}</span>
+
+  <mat-icon
+    style="cursor: pointer;"
+    class="mt-0 ms-auto text-light"
+    (click)="onLogout()"
+  >
+    logout
+  </mat-icon>
+
+</nav>
+
+<div class="bg-secondary info p-3">
+  <p class="text-light fs-2 ms-3 m-0">Create a ticket</p>
+</div>

@@ -1,0 +1,28 @@
+ html{
+  height: 100%;
+ }
+.example-container {
+  width: auto;
+  margin: 10px;
+  border: 1px solid #555;
+  background: #eee;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.hover-effect:hover{
+  background-color: white;
+  border-radius: 20px;
+}
+
+mat-drawer{
+  width: 230px;
+}
+
+.ticket:hover{
+ text-decoration: underline;
+ cursor: pointer;
+}

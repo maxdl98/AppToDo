@@ -1,0 +1,61 @@
+table{
+    background-color: red;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+button{
+    width: 120px;
+    border-radius: 20px;
+    margin-left: 60px;
+}
+
+
+.tabella{
+    margin-top: 150px;
+}
+
+form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  background-color: grey;
+  border-radius: 20px;
+  padding: 20px;
+  height: 170px;
+  z-index: 1000; 
+}
+
+
+
+
+
+.conferma{
+ background-color: green;
+ position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  background-color: grey;
+  border-radius: 20px;
+  padding: 20px;
+  height: 100px;
+  z-index: 1000; 
+}
+
+
+.noblur{
+    filter: none;
+    background-color: red;
+}

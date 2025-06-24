@@ -1,0 +1,10 @@
+<nav class="nav">
+  <div class="container">
+    <div class="scaricare"> 
+    <span class="excel" (click)="downloadExcel()" style="text-decoration: underline;" > Scarica l'Excel </span>
+    <span class="pdf" (click)="downloadPdf()" style="text-decoration: underline;"> Scarica il PDF  </span>
+    </div>
+    <mat-icon class="mx-2 mt-2">account_circle</mat-icon>
+    <mat-icon class="mx-2 mt-2" style="cursor: pointer;" (click)="onLogout()">logout</mat-icon>
+  </div>
+</nav>

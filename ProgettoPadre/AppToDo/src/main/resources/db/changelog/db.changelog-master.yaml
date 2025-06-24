@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include: # Questo è il primo elemento della lista 'databaseChangeLog'
+      file: changesets/01-create-materie-preferite-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changesets/02-add-data-creazione-to-materie.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changesets/03-rollback-data-creazione.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changesets/04-ricreare-materie-preferite.yaml
+      relativeToChangelogFile: true
+
+

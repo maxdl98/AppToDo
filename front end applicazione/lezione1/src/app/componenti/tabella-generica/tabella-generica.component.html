@@ -1,0 +1,37 @@
+
+
+<div *ngIf="showForm"> 
+<form [formGroup]="formGroup">
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+  </mat-form-field>
+
+
+  <button class="cursor-pointer" (click)="onSubmit()" mat-raised-button color="primary">  Invia </button>
+</form>
+</div>
+<div   *ngIf="!showForm &&!mostraPagina" class="conferma"> Grazie per averci contattato, a breve le arriverà una mail. 
+
+  <button (click)="onSubmit2()" class="ml-5"> OK </button>
+</div>
+
+<div  *ngIf="mostraPagina">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
