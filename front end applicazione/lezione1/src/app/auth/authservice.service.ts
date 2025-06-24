@@ -29,7 +29,7 @@ export class AuthserviceService {
 
   urlFormatori = "http://localhost:8081/api/formatore/getFormatori";
 
-  urlLoginAdmin = "http://localhost:8081/api/v1/login"
+  urlLoginAdmin = "http://localhost:8080/api/v1/login"
 
    percorsi = ['todo','esercizio','allenamento','login','signin',"listaUtenti",'ticket'
       ,'createticket','ticketchiusi','dash','pagina1','pagina2','pagina3','pagina4','pagina5','pagina6','pagina7','pagina8','pagina9','dialog', 'paginanuova'

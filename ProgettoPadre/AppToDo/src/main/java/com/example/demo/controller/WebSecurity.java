@@ -34,6 +34,7 @@ public class WebSecurity {
                         .requestMatchers(HttpMethod.GET, "/api/v1/login").hasRole("Admin")
                         .requestMatchers(HttpMethod.GET, "/api/utenti/Messaggio").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/tickets/submit").hasRole("User")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/login").hasRole("Admin")
                         .anyRequest().permitAll()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2

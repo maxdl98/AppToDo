@@ -1,59 +1,36 @@
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
-import { AuthserviceService } from './authservice.service';
 import { Injectable } from '@angular/core';
-
-
-
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { AuthService } from '../token/auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class authGuard implements CanActivate{
+export class authGuard implements CanActivate {
 
-  constructor(private authservice:AuthserviceService, private router:Router){
-    
-  }
+  constructor(private authservice: AuthService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    const isLoggedIn = await this.authservice.isLoggedIn();
+    const isAdmin = this.authservice.isAdmin();
 
-    const GestisciTicketRoute = state.url.includes('gestisciticket')
-
-   
-if (this.authservice.isAdmin) {
-  this.router.navigate(['gestisciticket']);
-  return false;
-}
-
-    
-
-    if(state.url.includes('loginAdmin')){
-      return true
+    if (!isLoggedIn) {
+      this.router.navigate(['login']);
+      return false;
     }
 
-
-    if(GestisciTicketRoute && !this.authservice.isAdmin){
+    if (state.url === '/dash' && isAdmin) {
       this.router.navigate(['loginAdmin']);
       return false;
     }
 
-  
-  
-    
-    if(this.authservice.isLoggedIn){
-      return true;
-    } else{
-      this.router.navigate(['login'])
-    
-      
+    if (state.url.includes('gestisciticket') && !isAdmin) {
+      this.router.navigate(['loginAdmin']);
+      return false;
+    }
+
+    if (state.url.includes('loginAdmin') && !isAdmin) {
+      this.router.navigate(['login']);
+      return false;
     }
 
     return true;
-
-    
-
-
-
   }
-
-
 }
-
-

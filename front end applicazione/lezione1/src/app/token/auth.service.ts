@@ -31,4 +31,12 @@ export class AuthService {
   getUsername(): string | undefined {
     return this.keycloakService.getUsername();
   }
+
+
+
+  isAdmin(): boolean {
+  const kc = this.keycloakService.getKeycloakInstance();
+  return kc.realmAccess?.roles?.includes('Admin') || false;
+}
+
 }

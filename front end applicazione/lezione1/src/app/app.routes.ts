@@ -24,35 +24,39 @@ import { TicketricevutiComponent } from './componenti/ticketricevuti/ticketricev
 import { TicketchiusiComponent } from './componenti/ticketchiusi/ticketchiusi.component';
 import { LoginAdminComponent } from './componenti/login-admin/login-admin.component';
 import { NavComponent } from './componenti/nav/nav.component';
-import { AppComponent } from './app.component';
-
 
 export const routes: Routes = [
-    {path: 'navigazione', component: NavComponent},
-    {path:'loginAdmin', component:LoginAdminComponent},
-    {path:'todo', canActivate: [authGuard], component : EsercizioComponent},
-    {path: 'esercizio', component : EsercizioComponent},
-    {path: 'allenamento', component : AllenamentoComponent},
-    {path:'login', component : LoginComponent},
-    {path: 'signin' , component: RegistrazioneComponent},
-    {path:"listaUtenti", component : HomeComponent},
-    {path:'ticket', component: TicketComponent},
-    {path:'createticket', component: CreateticketComponent},
-    {path: 'gestisciticket', canActivate: [authGuard], component: TicketricevutiComponent},
-    {path:'ticketchiusi', component: TicketchiusiComponent},
-    {path : 'dash', component : DashboardComponent, children : [
-    {path: 'pagina1', component : Pagina1Component},
-    {path: 'pagina2', component : Pagina2Component},
-    {path : 'pagina3', component: Pagina3Component},
-    {path : 'pagina4', component: Pagina4Component},
-    {path : 'pagina5', component: Pagina5Component},
-    {path : 'pagina6', component: Pagina6Component},
-    {path : 'pagina7', component: Pagina7Component},
-    {path : 'pagina8', component: Pagina8Component},
-    {path : 'pagina9', component: Pagina9Component},
-    {path: 'dialog', component: DialogComponent},
-    {path: 'paginanuova', component : PaginanuovaComponent},
+  { path: 'navigazione', component: NavComponent },
 
-   ]} 
+  { path: 'login', component: LoginComponent },
+  { path: 'signin', component: RegistrazioneComponent },
+  { path: 'esercizio', component: EsercizioComponent },
+  { path: 'allenamento', component: AllenamentoComponent },
+  { path: 'listaUtenti', component: HomeComponent },
+  { path: 'ticket', component: TicketComponent },
+  { path: 'createticket', component: CreateticketComponent },
+  { path: 'ticketchiusi', component: TicketchiusiComponent },
 
-]
+  { path: 'todo', canActivate: [authGuard], component: EsercizioComponent },
+  { path: 'gestisciticket', canActivate: [authGuard], component: TicketricevutiComponent },
+  { path: 'loginAdmin', canActivate: [authGuard], component: LoginAdminComponent },
+
+  {
+    path: 'dash',
+    canActivate: [authGuard],
+    component: DashboardComponent,
+    children: [
+      { path: 'pagina1', component: Pagina1Component },
+      { path: 'pagina2', component: Pagina2Component },
+      { path: 'pagina3', component: Pagina3Component },
+      { path: 'pagina4', component: Pagina4Component },
+      { path: 'pagina5', component: Pagina5Component },
+      { path: 'pagina6', component: Pagina6Component },
+      { path: 'pagina7', component: Pagina7Component },
+      { path: 'pagina8', component: Pagina8Component },
+      { path: 'pagina9', component: Pagina9Component },
+      { path: 'dialog', component: DialogComponent },
+      { path: 'paginanuova', component: PaginanuovaComponent },
+    ]
+  }
+];
