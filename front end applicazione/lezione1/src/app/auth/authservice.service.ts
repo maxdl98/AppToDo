@@ -11,23 +11,23 @@ import {jwtDecode} from 'jwt-decode';
 })
 export class AuthserviceService {
   
-  urlExcel = "http://localhost:8081/api/tickets/exportExcel"
+  urlExcel = "http://localhost:8080/api/tickets/exportExcel"
 
-  urlSignIn = "http://localhost:8081/api/utenti"
+  urlSignIn = "http://localhost:8080/api/utenti/ut"
 
-  urlLogin= "http://localhost:8081/api/utenti/login"
+  urlLogin= "http://localhost:8080/api/utenti/login/ut"
 
   urlEmail = "http://localhost:8081/api/utenti/sendHtmlEmail"
 
-  urlTelefono = "http://localhost:8081/api/utenti/Messaggio"
+  urlTelefono = "http://localhost:8080/api/utenti/Messaggio"
 
   urlTickets = "http://localhost:8080/api/tickets/submit"
 
   urlTicketsGetAll = "http://localhost:8081/api/tickets/getAllEmail"
 
-  urlTickets2 = "http://localhost:8081/api/formatore/invioMail"
+  urlTickets2 = "http://localhost:8080/api/formatore/invioMail"
 
-  urlFormatori = "http://localhost:8081/api/formatore/getFormatori";
+  urlFormatori = "http://localhost:8082/api/formatore/getFormatori";
 
   urlLoginAdmin = "http://localhost:8080/api/v1/login"
 

@@ -4,12 +4,12 @@ import { Form, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validat
 import { MatInputModule } from '@angular/material/input';
 import { AuthserviceService } from '../../auth/authservice.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router'; // CORRETTO
+import { Router, RouterModule } from '@angular/router'; // CORRETTO
 
 
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,MatInputModule,CommonModule],
+  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })

@@ -31,10 +31,13 @@ public class WebSecurity {
                 .cors(customizer -> {}) //
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(HttpMethod.POST, "/api/utenti/uti").hasRole("User")
-                        .requestMatchers(HttpMethod.GET, "/api/v1/login").hasRole("Admin")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/login").hasRole("Admin")
                         .requestMatchers(HttpMethod.GET, "/api/utenti/Messaggio").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/tickets/submit").hasRole("User")
-                        .requestMatchers(HttpMethod.GET, "/api/v1/login").hasRole("Admin")
+                        .requestMatchers(HttpMethod.POST, "/api/utenti/login/ut").hasRole("User")
+                        .requestMatchers(HttpMethod.POST, "/api/formatore/invioMail").hasRole("Admin")
+                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori").hasRole("User")
+
                         .anyRequest().permitAll()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2

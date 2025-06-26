@@ -256,40 +256,44 @@ public class UtentiController {
 
 
     // Endpoint per il login
-    @PostMapping("/login")
+    @PostMapping("/login/ut")
     public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
         String email = loginData.get("email");
         String password = loginData.get("password");
 
+        Map<String, Object> response = new HashMap<>();
 
 
 
         // Cerca l'utente nel database tramite email e password
-        Optional<Utente> utenteOpt = utenteRepository.findByEmailAndPassword(email, password);
+        Optional<Utente> utenteOpt = utenteRepository.findByEmail(email);
 
         if (utenteOpt.isPresent()) {
             Utente utente = utenteOpt.get();
 
             // Generazione del token JWT
-            String token = Jwts.builder()
-                    .setSubject(utente.getEmail())
-                    .claim("nome", utente.getNome())
-                    .claim("id", utente.getId())
-                    .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 ora
-                    .signWith(SignatureAlgorithm.HS256, "chiaveSuperSegreta123")
-                    .compact();
+            if(passwordEncoder.matches(password, utente.getPassword())){
+                String token = Jwts.builder()
+                        .setSubject(utente.getEmail())
+                        .claim("nome", utente.getNome())
+                        .claim("id", utente.getId())
+                        .setIssuedAt(new Date())
+                        .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 ora
+                        .signWith(SignatureAlgorithm.HS256, "chiaveSuperSegreta123")
+                        .compact();
 
-            // Risposta con utente e token
-            Map<String, Object> response = new HashMap<>();
-            response.put("id", utente.getId());
-            response.put("nome", utente.getNome());
-            response.put("email", utente.getEmail());
-            response.put("token", token);
+                // Risposta con utente e token
+                response.put("id", utente.getId());
+                response.put("nome", utente.getNome());
+                response.put("email", utente.getEmail());
+                response.put("token", token);
 
-            return ResponseEntity.ok(response);
+            }
+
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenziali errate");
         }
+        return ResponseEntity.ok(response);
+
     }
 }

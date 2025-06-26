@@ -28,6 +28,7 @@ public class SmsService {
 
     @PostConstruct
     private void setUp() {
+        System.out.println(AUTH_TOKEN);
         System.out.println("ACCOUNT-SID: " + ACCOUNT_SID);
         Twilio.init(ACCOUNT_SID,AUTH_TOKEN);
 

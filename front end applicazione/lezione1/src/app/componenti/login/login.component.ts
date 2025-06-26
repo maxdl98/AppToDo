@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { ErroreService } from '../../auth/errore.service';
 import { AuthserviceService } from '../../auth/authservice.service';
 import {jwtDecode} from 'jwt-decode';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -65,6 +65,11 @@ export class LoginComponent implements OnInit {
       }
      })
 
+  }
+
+
+  onSignIn(){
+    this.route.navigate(['signin'])
   }
 }
 
