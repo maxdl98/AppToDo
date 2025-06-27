@@ -15,11 +15,23 @@ import { Router } from '@angular/router';
 })
 export class TicketComponent implements OnInit {
   
+  currentLang : 'it' | 'en'  = 'it'
+
   emailUtente : string = "";
   mostra : boolean = false;
 
    constructor(private route:Router){}
   ngOnInit(): void {
+   
+    const lang = localStorage.getItem('lang')
+
+    if(lang === 'it' || lang === 'en'){
+      this.currentLang = lang;
+
+    }
+
+
+
     const email = localStorage.getItem('email')
 
     if(email){

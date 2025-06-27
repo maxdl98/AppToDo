@@ -15,16 +15,20 @@ import { Router } from '@angular/router'; // CORRETTO
 })
 export class CreateticketComponent implements OnInit {
   dati: any;
-
-  
   mostraInfo : boolean = false;
+  currentLang: 'it' | 'en' = 'it'; 
 
   constructor(private service:AuthserviceService, private route:Router) {
-    
+
   }
 
 
    ngOnInit(): void {
+    const lang = localStorage.getItem('lang')
+
+    if(lang === 'it' || lang === 'en'){
+      this.currentLang = lang
+    }
     const email = localStorage.getItem('email')
 
     if(email) {

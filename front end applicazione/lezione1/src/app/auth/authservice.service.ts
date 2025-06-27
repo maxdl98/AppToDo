@@ -13,19 +13,18 @@ export class AuthserviceService {
   
   urlExcel = "http://localhost:8080/api/tickets/exportExcel"
 
-  urlSignIn = "http://localhost:8080/api/utenti/ut"
+  urlSignIn = "http://localhost:8080/api/utenti/uti"
 
   urlLogin= "http://localhost:8080/api/utenti/login/ut"
 
-  urlEmail = "http://localhost:8081/api/utenti/sendHtmlEmail"
+  urlEmail = "http://localhost:8080/api/utenti/sendHtmlEmail"
 
-  urlTelefono = "http://localhost:8080/api/utenti/Messaggio"
 
   urlTickets = "http://localhost:8080/api/tickets/submit"
 
   urlTicketsGetAll = "http://localhost:8081/api/tickets/getAllEmail"
 
-  urlTickets2 = "http://localhost:8080/api/formatore/invioMail"
+  urlTickets2 = "http://localhost:8082/api/formatore/invioMail"
 
   urlFormatori = "http://localhost:8082/api/formatore/getFormatori";
 
@@ -109,9 +108,7 @@ export class AuthserviceService {
     return this.http.post(this.urlSignIn,body)
   }
 
-   ricevimail(numero:string){
-    return this.http.get(`${this.urlTelefono}?numero=%2B${numero}`)
-  }
+   
 
 
   login(email:string, password:string){

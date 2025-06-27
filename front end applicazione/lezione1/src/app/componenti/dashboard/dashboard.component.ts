@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { link } from 'fs';
+import { CreateticketComponent } from '../createticket/createticket.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +28,7 @@ import { TranslateService } from '@ngx-translate/core';
     RouterLink,
     MatButtonModule,
     CommonModule,
-    MatCardModule
+    MatCardModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -48,9 +50,22 @@ export class DashboardComponent {
         { nome: 'Chimica', link: '/dash/pagina9' },
         { nome: 'Perchè scegliere noi?', link: '/dash/dialog' }
       ],
-      ticket: [
-        {nome : "Crea ticket"}
+      footer1: [
+        {nome : "Chi siamo", id:"chisiamo"},
+        {nome : "Perché scegliere noi", id:"perche"},
+        
+      ],
+
+      footer2: [
+        {nome:"Contatti", id:"contatti"},
+        {nome : "Indirizzo Fisico", id:"indirizzo"},
+        {nome : "Numero di telefono", id:"numero"},
+        {nome : "Orari di apertura", id:"orario"}
       ]
+
+      // ticket: [
+      //   {nome:"Crea Ticket", id:"ticket" }
+      // ]
     },
     en: {
       materie: [
@@ -65,9 +80,21 @@ export class DashboardComponent {
         { nome: 'Chemistry', link: '/dash/pagina9' },
         { nome: 'Why choose us?', link: '/dash/dialog' }
       ] ,
-      ticket: [
-        {nome: "Create ticket"}
+     
+      footer1 : [
+        {nome:"Who are", id: "chisiamo"},
+        {nome:"Why choose us?" , id:"perche"},
+       
+      ],
+
+      footer2: [
+        {nome:"Physical Address", id:"indirizzo"},
+        {nome:"Number of phone", id:"numero"},
+        {nome:"Opening hours", id:"orario"}
       ]
+      // ticket: [
+      //   {nome:"Create Ticket", id:"ticket"}
+      // ]
     }
   };
 
@@ -82,14 +109,28 @@ export class DashboardComponent {
     return this.translations[this.currentLang].materie;
   }
 
-  get ticket(){
-    return this.translations[this.currentLang].ticket
+  get footer1(){
+    return this.translations[this.currentLang].footer1
   }
+
+  get footer2(){
+    return this.translations[this.currentLang].footer2
+  }
+
+  // get ticket(){
+  //   return this.translations[this.currentLang].ticket
+  // }
+
+  
+
+ 
 
   changeLang(lang: Lang) {
     this.currentLang = lang;
     localStorage.setItem('lang', lang);
   }
+
+  
 
   onLogout() {
     this.route.navigate(['login']);

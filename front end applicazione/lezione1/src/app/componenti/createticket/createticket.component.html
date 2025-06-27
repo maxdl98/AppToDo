@@ -6,7 +6,7 @@
   <span> {{ emailUtente }}</span>
 </div>
 <mat-form-field class="mt-5">
-  <mat-label>Problematica</mat-label>
+  <mat-label>{{this.currentLang === 'it'?'Problematica' : 'Issue'}}</mat-label>
   <mat-select formControlName="problematica">
     <div class="opzioniServizi"> 
 
@@ -33,19 +33,17 @@
   </mat-select>
 </mat-form-field>
 <mat-form-field class="mt-5 contenuto">
-  <mat-label>Contenuto </mat-label>
+  <mat-label>{{this.currentLang === 'it'?'Contenuto' : 'Content'}}</mat-label>
   <textarea  style="overflow: hidden; resize: none;" class="w-100" matInput formControlName="contenuto" ></textarea>
-  <mat-error *ngIf="InvioDati.get('contenuto')?.hasError('required') && InvioDati.get('contenuto')?.touched"> Errore
-</mat-error>
 
 </mat-form-field>
 <input (change)="onFileSelected($event)"  class="mt-5" type="file"> 
 
-<button (click)="onSubmit()" type="submit" class="invia" mat-button color="primary">Invia </button>
+<button (click)="onSubmit()" type="submit" class="invia" mat-button color="primary">{{this.currentLang === 'it'?'Invia' : 'Send'}} </button>
 </div>
 </form>
 
 <div *ngIf="mostraInfo" class="info"> 
-   <p> Il ticket verrà risolto dal primo operatore disponibile. Grazie.  </p>
+   <p> {{this.currentLang === 'it'?'Il ticket verrà risolto dal primo operatore disponibile' : 'The ticket will be solved by the first available operator'}} </p>
    <button class="buttonTicket" (click)="goHome()"> Ok </button>
 </div>

@@ -13,7 +13,7 @@
 
     <div *ngIf="mostra" class="position-absolute bg-white mt-2 p-2 rounded shadow" style="left: 40px;">
       <p class="text-dark chiusi m-0" (click)="toTicketChiusi()" style="cursor: pointer;">
-        Tickets Chiusi
+        {{this.currentLang === 'it'? 'Ticket Chiusi' : 'Close Tickets'}}
       </p>
     </div>
   </div>

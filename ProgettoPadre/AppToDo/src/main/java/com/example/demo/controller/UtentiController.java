@@ -93,33 +93,6 @@ public class UtentiController {
 
 
 
-    @GetMapping("/Messaggio")
-    public ResponseEntity<String> riceviSms(@RequestParam String numero) {
-
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println("numero ricevuto_________: " + numero );
-
-        Optional<Utente> UtenteNumero = utenteRepository.findByNumero(numero);
-
-        System.out.println(numero);
-        String mex ="";
-        if(UtenteNumero.isPresent()){
-            System.out.println("Invio SMS a: " + numero);
-             mex = service.sendSMS(numero, "Ciao benvenuto in Ixplò :). Per qualsiasi necessità puoi rivolgerti a noi");
-
-        } else{
-            return new ResponseEntity<String>("c'è un errore", HttpStatus.BAD_REQUEST);
-        }
-
-
-        return ResponseEntity.ok(mex);
-    }
 
 
 
@@ -221,7 +194,23 @@ public class UtentiController {
             utente.setPassword(hashedPassword);
 
             Utente nuovoUtente = utenteService.salvaUtente(utente);
+
+            String numero = utente.getNumero();
+
+            System.out.println("numero ricevuto: " + numero);
+
+
+            Thread.sleep(9000);
+
+            String mex = service.sendSMS(numero, "Ciao benvenuto in Ixplò :). Per qualsiasi necessità puoi rivolgerti a noi");
+
+
             return new ResponseEntity<>(nuovoUtente, HttpStatus.CREATED);
+
+
+
+
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -257,7 +246,7 @@ public class UtentiController {
 
     // Endpoint per il login
     @PostMapping("/login/ut")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
+    public ResponseEntity<Map<String,Object>> login(@RequestBody Map<String, String> loginData) throws Exception {
         String email = loginData.get("email");
         String password = loginData.get("password");
 
@@ -272,7 +261,9 @@ public class UtentiController {
             Utente utente = utenteOpt.get();
 
             // Generazione del token JWT
+
             if(passwordEncoder.matches(password, utente.getPassword())){
+
                 String token = Jwts.builder()
                         .setSubject(utente.getEmail())
                         .claim("nome", utente.getNome())
@@ -291,7 +282,9 @@ public class UtentiController {
             }
 
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenziali errate");
+            response.put("error", "Credenziali non valide");
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+
         }
         return ResponseEntity.ok(response);
 

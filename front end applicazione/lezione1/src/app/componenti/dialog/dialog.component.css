@@ -6,3 +6,21 @@
 
 }
 
+.newsletter {
+  background-color: rgb(25, 135, 84);    
+  width: 290px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 1700px;
+  position: fixed;
+  height: 60px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter:hover {
+  background-color: rgb(223, 212, 212); /* ✅ colore hover */
+  color: black;
+}

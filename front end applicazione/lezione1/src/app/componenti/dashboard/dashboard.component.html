@@ -3,14 +3,14 @@
     <img  style="width: 100px; height: 100px;"  src="https://ixplo.net/wp-content/uploads/2022/08/cropped-Senza-titolo.png"> 
     <span>Ixplò</span>
     <span class="ms-auto"></span>
-    <div class="d-flex flex-direction-row">
+    
+    <div class="d-flex flex-direction-row gap-5">
     <button mat-icon-button   aria-label="Logout" class="mx-5 "> </button>
-
-      <p class="fs-5 mt-4 ticket" (click)="onTickets()"> Crea Ticket </p>
+       <button (click)="changeLang('it')" [disabled]="currentLang === 'it'" style="margin-left: 20px; position: relative;">IT</button>
+       <button (click)="changeLang('en')" [disabled]="currentLang === 'en'">EN</button>
       <mat-icon  class="mx-4 mt-4">account_circle</mat-icon>
-      <mat-icon style="cursor: pointer;" class="mt-4"(click)="onLogout()" >logout</mat-icon>
-  <button (click)="changeLang('it')" [disabled]="currentLang === 'it'">IT</button>
-  <button (click)="changeLang('en')" [disabled]="currentLang === 'en'">EN</button>
+      <p class="fs-5 mt-4 ticket" (click)="onTickets()">{{currentLang === 'it'? 'Crea Ticket' : 'Create Ticket'}} </p>
+        <mat-icon style="cursor: pointer;" class="mt-4"(click)="onLogout()" >logout</mat-icon>
     </div>
   </mat-toolbar>
 
@@ -35,44 +35,44 @@
 <!-- About -->
   
 <div class="col">
-  <h3 class="ms-5 mb-4 fs-4">About</h3>
+  <h3 class="ms-5 mb-4 fs-4">{{ currentLang === 'it' ? 'Chi siamo' : 'About' }}</h3>
 
-  <div class="ms-5 mt-3 text-white d-flex">
-    <a href="chisiamo.html" class="me-2 text-decoration-none " style="color: white; cursor: pointer;">Chi siamo</a>
-  </div>
-
-  <div class="ms-5 mt-3 text-white d-flex" >
-    <a class="me-2 text-decoration-none "style="color: white; cursor: pointer;">Perchè scegliere noi?</a>
-  </div>
-
-  <div class="ms-5 mt-3 text-white d-flex">
-    <a class="me-2 text-decoration-none "style="color: white; cursor: pointer;">  Privacy</a>
+  <div class="ms-5 mt-3 text-white d-flex flex-column gap-2">
+    <div *ngFor="let voce of footer1">
+      <a 
+        class="text-white text-decoration-none" 
+        [href]="'#' + voce.id"
+        style="cursor: pointer;"
+      >
+        {{ voce.nome }}
+      </a>
+    </div>
   </div>
 </div>
+
+
 
 
 
   <!-- Contatti -->
+ <div class="col">
+      <h3 class="ms-5 mb-4 fs-4">{{ currentLang === 'it' ? 'Contatti' : 'Contacts' }}</h3>
 
+      <div class="ms-5 mt-3 text-white d-flex">
+        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Indirizzo fisico:' : 'Physical address:' }}</span>
+        <span id="indirizzo" class="fst-italic">Via Dello Scirè 6</span>
+      </div>
 
-<div class="col">
-  <h3 class="ms-5 mb-4 fs-4">Contatti</h3>
+      <div class="ms-5 mt-3 text-white d-flex">
+        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Numero di telefono:' : 'Phone number:' }}</span>
+        <span id="numero">089345678</span>
+      </div>
 
-  <div class="ms-5 mt-3 text-white d-flex">
-    <span class="me-2 fw-bold">Indirizzo fisico:</span>
-    <span class="fst-italic">Via Dello Scirè 6</span>
-  </div>
-
-  <div class="ms-5 mt-3 text-white d-flex">
-    <span class="me-2 fw-bold">Numero di telefono:</span>
-    <span>089345678</span>
-  </div>
-
-  <div class="ms-5 mt-3 text-white d-flex">
-    <span class="me-2 fw-bold">Orari di apertura:</span>
-    <span>8:00 - 13:00 / 14:00 - 18:00</span>
-  </div>
-</div>
+      <div class="ms-5 mt-3 text-white d-flex">
+        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Orari di apertura:' : 'Opening hours:' }}</span>
+        <span id="orario">8:00 - 13:00 / 14:00 - 18:00</span>
+      </div>
+    </div>
 
 
 

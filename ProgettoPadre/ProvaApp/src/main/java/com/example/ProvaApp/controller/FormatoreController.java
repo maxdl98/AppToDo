@@ -5,6 +5,7 @@ import com.example.ProvaApp.entity.Formatore;
 import com.example.ProvaApp.service.FormatoreService;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,7 +77,7 @@ public class FormatoreController {
         helper.setText(rispostaFormatore,false);
 
 
-        FileSystemResource file = new FileSystemResource(new File("src/main/resources/static/privacy.pdf"));
+        ClassPathResource file = new ClassPathResource("static/privacy.pdf");
         helper.addAttachment("privacy.pdf", file);
 
 

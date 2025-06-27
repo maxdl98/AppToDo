@@ -21,7 +21,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         initOptions: {
           onLoad: 'login-required',
           checkLoginIframe: false,
-          redirectUri: window.location.origin + '/dash',
+          redirectUri: window.location.origin + '/login',
         },
       })
       .then(() => console.log('Keycloak init successful'))

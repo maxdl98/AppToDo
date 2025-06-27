@@ -26,3 +26,7 @@ mat-drawer{
  text-decoration: underline;
  cursor: pointer;
 }
+
+.bandiera{
+  margin-left: 10px;
+}

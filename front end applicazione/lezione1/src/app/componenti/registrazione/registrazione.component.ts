@@ -5,11 +5,12 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthserviceService } from '../../auth/authservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router'; // CORRETTO
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule],
+  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule,LoginComponent],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })
@@ -75,10 +76,7 @@ export class RegistrazioneComponent {
 
   })
 
-  this.service.ricevimail(numero as string)
-  .subscribe(data =>{
-    console.log(data);
-  })
+ 
    
   
 
@@ -86,6 +84,10 @@ export class RegistrazioneComponent {
 
 }
 
+
+redirectToLogin(){
+  this.route.navigate(['login']);
+}
 
 
 
