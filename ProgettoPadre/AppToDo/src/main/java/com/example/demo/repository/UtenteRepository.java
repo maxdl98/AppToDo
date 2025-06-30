@@ -18,11 +18,14 @@ public interface UtenteRepository extends CrudRepository<Utente,Long>{
 
 	Optional<Utente> findByNumero(String numero);
 
+	Optional<Utente> findById(Long id);
+
+
 	public void  deleteAll();
 
 
 
-    
-	
+
+
 
 }

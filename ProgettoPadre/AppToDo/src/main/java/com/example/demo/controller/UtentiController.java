@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.MinutiSpesi;
 import com.example.demo.entity.Utente;
 import com.example.demo.repository.UtenteRepository;
 import com.example.demo.service.SmsRequest;
@@ -23,6 +24,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +45,8 @@ public class UtentiController {
         this.utenteRepository = utenteRepository;
     }
     
-    
+
+
     @Autowired
 	private JavaMailSender mailSender;
     
@@ -61,6 +64,18 @@ public class UtentiController {
 
 
 
+
+    @GetMapping("/utente/{id}")
+    public ResponseEntity<Utente>findById(@PathVariable Long id){
+        Optional<Utente> uti = utenteService.findById(id);
+
+        if(uti.isPresent()){
+            System.out.println("l'utente è presente");
+            return new ResponseEntity<Utente>(uti.get(), HttpStatus.OK);
+        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     @GetMapping("/num")
@@ -183,8 +198,6 @@ public class UtentiController {
 
   
 
-    // Endpoint per creare un nuovo utente
-    //@Secured("ROLE_developer")
     @PostMapping("/uti")
     public ResponseEntity<Utente> creaUtente(@RequestBody Utente utente) {
         try {
@@ -192,6 +205,14 @@ public class UtentiController {
 
             String hashedPassword = passwordEncoder.encode(utente.getPassword());
             utente.setPassword(hashedPassword);
+
+            LocalDate dataOdierna = null;
+
+            utente.setDataRegistrazione(dataOdierna.now());
+
+            utente.getDataRegistrazione();
+
+
 
             Utente nuovoUtente = utenteService.salvaUtente(utente);
 

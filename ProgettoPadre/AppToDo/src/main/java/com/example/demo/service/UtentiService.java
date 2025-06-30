@@ -11,6 +11,7 @@ import java.util.List;  // Usa java.util.List
 
 import java.util.Optional;
 
+
 @Service
 public class UtentiService {
 
@@ -43,13 +44,17 @@ public class UtentiService {
     
     public Optional<Utente> findByEmail(String email) {
     	return utenteRepository.findByEmail(email);  
-    	
-    	
+
+
     	
     }
 
     public Optional<Utente> findByNumero(String numero){
         return utenteRepository.findByNumero(numero);
+    }
+
+    public Optional<Utente> findById(Long id){
+        return utenteRepository.findById(id);
     }
 
     

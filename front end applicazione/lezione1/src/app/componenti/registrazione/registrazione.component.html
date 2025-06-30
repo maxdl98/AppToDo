@@ -16,6 +16,33 @@
   <input matInput type="text"  name="numero" formControlName = "numero">
 </mat-form-field>
 <mat-form-field>
+  <mat-label>Regione di Provenienza</mat-label>
+  <mat-select [panelClass]="'custom-select-panel'" formControlName = "regione">
+    <div class="regione"> 
+    <mat-option class="regione1" value="one">Valle d'Aosta</mat-option>
+    <mat-option value="Piemonte">Piemonte</mat-option>
+    <mat-option value="Liguria">Liguria</mat-option>
+    <mat-option value="Lombardia">Lombardia</mat-option>
+    <mat-option value="Trentino Alto-Adige">Trentino Alto Adige</mat-option>
+    <mat-option value="Veneto">Veneto</mat-option>
+    <mat-option value="Friuli-Venezia Giulia">Friuli-Venezia Giulia</mat-option>
+    <mat-option value="Emilia-Romagna">Emilia-Romagna</mat-option>
+    <mat-option value="Toscana">Toscana</mat-option>
+    <mat-option value="Umbria">Umbria</mat-option>
+    <mat-option value="Marche">Marche</mat-option>
+    <mat-option value="Lazio">Lazio</mat-option>
+    <mat-option value="Abruzzo">Abruzzo</mat-option>
+    <mat-option value="Molise">Molise</mat-option>
+    <mat-option value="Campania">Campania</mat-option>
+    <mat-option value="Puglia ">Puglia</mat-option>
+    <mat-option value="Basilicata">Basilicata</mat-option>
+    <mat-option value="Calabria">Calabria</mat-option>
+    <mat-option value="Sicilia">Sicilia</mat-option>
+    <mat-option value="Sardegna">Sardegna</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
   <mat-label>Password</mat-label>
   <input matInput type="password"  name="password" formControlName = "password">
 </mat-form-field>

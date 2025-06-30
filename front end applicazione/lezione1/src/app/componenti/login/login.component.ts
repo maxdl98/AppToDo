@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         const token = data.token;
-
+       
         if (typeof token !== 'string' || !token) {
           console.error('Token non valido:', token);
           return;
@@ -47,6 +47,9 @@ export class LoginComponent implements OnInit {
 
         this.service.createUser(data.email, data.id, token, data.nome);
         console.log("ecco l'user", this.service.user);
+
+        localStorage.setItem('loginTimestamp', (decodedToken.iat * 1000).toString());
+        localStorage.setItem('userId', data.id.toString()); 
 
         localStorage.setItem('email', JSON.stringify(email));
         localStorage.setItem('user', JSON.stringify(this.service.user));

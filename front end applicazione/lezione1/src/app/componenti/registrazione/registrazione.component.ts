@@ -6,11 +6,12 @@ import { AuthserviceService } from '../../auth/authservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router'; // CORRETTO
 import { LoginComponent } from '../login/login.component';
+import { MatOption, MatSelectModule } from '@angular/material/select';
 
 
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule,LoginComponent],
+  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule,LoginComponent,MatSelectModule,MatOption],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })
@@ -23,6 +24,7 @@ export class RegistrazioneComponent {
   nome!:any
   email! : any
   password!: any
+  regione!:any
   telefono!:any
 
     urlTelefono = "http://localhost:8080/api/utenti/Messaggio"
@@ -36,6 +38,7 @@ export class RegistrazioneComponent {
     email : new FormControl('',Validators.email),
     data: new FormControl('', Validators.required),
     numero: new FormControl(''),
+    regione: new FormControl(''),
     password: new FormControl('', [Validators.minLength(8), Validators.pattern('[!@#$%^&*(),.?":{}|<>]')]),
   })
 
@@ -56,11 +59,12 @@ export class RegistrazioneComponent {
   const data = this.userForm.value.data;
   const nome = this.userForm.value.nome;nome
   const email = this.userForm.value.email;
+  const regione = this.userForm.value.regione;
   const password = this.userForm.value.password;
   const numero = this.userForm.value.numero
   
 
-  this.service.signUp({nome, email, data,numero,password, returnSecureToken: true}
+  this.service.signUp({nome, email, data,numero,regione,password, returnSecureToken: true}
 
   
   

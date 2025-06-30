@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -24,17 +25,23 @@ public class Utente {
 
     private String password;
 
+    private String regione;
 
+    private LocalDate dataRegistrazione;
+
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MinutiSpesi> sessioniMinuti;
 
     // Costruttori
     public Utente() {}
 
-    public Utente(String nome, String email, LocalDate data,String numero, String password) {
+    public Utente(String nome, String email, LocalDate dataRegistrazione,String numero, String password,String regione) {
         this.nome = nome;
         this.email = email;
-        this.data = data;
-        this.password = password;
         this.numero = numero;
+        this.regione = regione;
+        this.password = password;
+        this.dataRegistrazione = dataRegistrazione;
     }
 
     // Getter e Setter
@@ -83,5 +90,23 @@ public class Utente {
 
     public void setNumero(String numero) {
         this.numero ="+"+numero;
+    }
+
+    public void setRegione(String regione){
+        this.regione = regione;
+    }
+
+
+    public String getRegione(){
+        return regione;
+    }
+
+
+    public LocalDate getDataRegistrazione() {
+        return dataRegistrazione;
+    }
+
+    public void setDataRegistrazione(LocalDate dataRegistrazione) {
+        this.dataRegistrazione = dataRegistrazione;
     }
 }
