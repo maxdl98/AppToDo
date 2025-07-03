@@ -9,6 +9,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { KeycloakService } from 'keycloak-angular';
 import { TokenInterceptor } from './app/interceptors/token.interceptor';
 
+
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak
@@ -19,9 +20,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
           clientId: 'AppToDo',
         },
         initOptions: {
-          onLoad: 'login-required',
+          onLoad: 'check-sso',
           checkLoginIframe: false,
-          redirectUri: window.location.origin + '/login',
+          redirectUri: window.location.origin + '/loginAdmin' || window.location.origin + '/login'
         },
       })
       .then(() => console.log('Keycloak init successful'))
@@ -38,6 +39,7 @@ const keycloakInitializerProvider: Provider = {
 bootstrapApplication(AppComponent, {
   ...appConfig,
   providers: [
+
     ...(appConfig.providers ?? []),
     importProvidersFrom(HttpClientModule, RouterModule, OAuthModule.forRoot()),
     KeycloakService,
@@ -47,5 +49,6 @@ bootstrapApplication(AppComponent, {
       useClass: TokenInterceptor,
       multi: true,
     },
+
   ],
 }).catch(err => console.error(err));

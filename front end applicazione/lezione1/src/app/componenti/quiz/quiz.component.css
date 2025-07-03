@@ -1,0 +1,22 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.avanti:hover{
+    background-color: rgb(115, 97, 97);
+}
+
+.niente{
+  display: none;
+}
+
+.quiz-card{
+  margin-left: 426px;
+  margin-top: 300px;
+
+}

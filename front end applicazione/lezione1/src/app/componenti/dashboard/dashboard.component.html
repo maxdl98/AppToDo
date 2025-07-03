@@ -8,7 +8,7 @@
     <button mat-icon-button   aria-label="Logout" class="mx-5 "> </button>
        <button (click)="changeLang('it')" [disabled]="currentLang === 'it'" style="margin-left: 20px; position: relative;">IT</button>
        <button (click)="changeLang('en')" [disabled]="currentLang === 'en'">EN</button>
-      <mat-icon  class="mx-4 mt-4">account_circle</mat-icon>
+      <mat-icon  class="mx-4 mt-4" (click)="OnProfilo()">account_circle</mat-icon>
       <p class="fs-5 mt-4 ticket" (click)="onTickets()">{{currentLang === 'it'? 'Crea Ticket' : 'Create Ticket'}} </p>
         <mat-icon style="cursor: pointer;" class="mt-4"(click)="onLogout()" >logout</mat-icon>
     </div>

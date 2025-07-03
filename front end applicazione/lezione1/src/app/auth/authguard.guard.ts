@@ -11,13 +11,15 @@ export class authGuard implements CanActivate {
     const isLoggedIn = await this.authservice.isLoggedIn();
     const isAdmin = this.authservice.isAdmin();
 
-    if (!isLoggedIn) {
-      this.router.navigate(['login']);
+   
+
+    if (state.url === '/login' && isAdmin) {
+      this.router.navigate(['loginAdmin']);
       return false;
     }
 
-    if (state.url === '/dash' && isAdmin) {
-      this.router.navigate(['loginAdmin']);
+     if (!isLoggedIn) {
+      this.router.navigate(['login']);
       return false;
     }
 

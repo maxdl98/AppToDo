@@ -1,0 +1,19 @@
+
+.profilo:hover{
+    cursor: pointer;
+    background-color: beige;
+}
+
+.punti:hover{
+    cursor: pointer;
+    background-color: beige;
+}
+
+.questionario:hover{
+    cursor: pointer;
+    background-color: beige;
+}
+
+.example-container{
+  background-color: rgba(202, 190, 175, 0.816);
+}

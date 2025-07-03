@@ -48,7 +48,8 @@ export class DashboardComponent {
         { nome: 'Filosofia', link: '/dash/pagina7' },
         { nome: 'Politica', link: '/dash/pagina8' },
         { nome: 'Chimica', link: '/dash/pagina9' },
-        { nome: 'Perchè scegliere noi?', link: '/dash/dialog' }
+        { nome: 'Perchè scegliere noi?', link: '/dash/dialog' },
+        {nome : 'Quiz', link: '/dash/quiz'}
       ],
       footer1: [
         {nome : "Chi siamo", id:"chisiamo"},
@@ -78,7 +79,8 @@ export class DashboardComponent {
         { nome: 'Philosophy', link: '/dash/pagina7' },
         { nome: 'Politics', link: '/dash/pagina8' },
         { nome: 'Chemistry', link: '/dash/pagina9' },
-        { nome: 'Why choose us?', link: '/dash/dialog' }
+        { nome: 'Why choose us?', link: '/dash/dialog' },
+        {nome: 'Quiz', link: '/dash/quiz'}
       ] ,
      
       footer1 : [

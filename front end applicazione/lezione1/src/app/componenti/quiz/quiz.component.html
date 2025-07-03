@@ -1,0 +1,225 @@
+
+<form [formGroup]="quizForm" (ngSubmit)="submitQuiz()">  
+<mat-card [ngClass]="ToNext === true ? 'niente' : 'vabene'"   class="example-card" appearance="outlined" class="w-75 h-25 bg-dark-subtle" style="margin-top: 300px; margin-left: 280px; border-radius: 20px;">
+  <mat-card-header>
+    <mat-card-title class="fw-bold fs-4 ms-4">Vuoi iniziare il quiz? </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="mt-4 ms-4">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, animi ullam maxime consequuntur autem sapiente cumque! Consequatur architecto nobis unde suscipit at natus tempore molestiae debitis vero mollitia magnam, quis facere, recusandae rerum eius. Unde aperiam, maxime, tempore corrupti aspernatur dicta tempora minima similique fugit earum aliquam, assumenda reiciendis veritatis?
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton class="ms-5 rounded" style="width:90px;" (click)="avanti()">Inizia</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Storia  -->
+
+<mat-card formControlName = "q1" [ngClass]="toPsicologia === true ? 'niente' : 'vabene'"  *ngIf="ToNext" class="quiz-card w-50  h-25 bg-dark-subtle " appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Storia:** In quale anno cadde il Muro di Berlino?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+       <mat-radio-group formControlName="q1"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="1985" class="mb-2">1985</mat-radio-button>
+                <mat-radio-button value="1989" class="mb-2">1989</mat-radio-button>
+                <mat-radio-button value="1991" class="mb-2">1991</mat-radio-button>
+                <mat-radio-button value="1995" class="mb-2">1995</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button  (click)="onNextStep()" mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+<mat-card formControlName = "q2" [ngClass]="toSociologia === true ? 'niente' : 'vabene'"  *ngIf="toPsicologia" class="quiz-card w-75    h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Psicologia:** Quale teoria psicologica si concentra sul modo in cui le persone elaborano, memorizzano e utilizzano le informazioni?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+        <mat-radio-group formControlName="q2"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Comportamentismo" class="mb-2">Comportamentismo</mat-radio-button>
+                <mat-radio-button value="Cognitivismo" class="mb-2">Cognitivismo</mat-radio-button>
+                <mat-radio-button value="Umanesimo" class="mb-2">Umanesimo</mat-radio-button>
+                <mat-radio-button value="Psicodinamica" class="mb-2">Psicodinamica</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button (click)="onNextSociologia()" mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+<!-- Sociologia -->
+
+
+
+<mat-card formControlName = "q3" [ngClass]="toGeografia === true ? 'niente' : 'vabene'" *ngIf="toSociologia" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Sociologia:** Chi ha coniato il termine "immaginazione sociologica"?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+       <mat-radio-group formControlName="q3"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Max Weber" class="mb-2">Max Weber</mat-radio-button>
+                <mat-radio-button value="Émile Durkheim" class="mb-2">Émile Durkheim</mat-radio-button>
+                <mat-radio-button value="C. Wright Mills" class="mb-2">C. Wright Mills</mat-radio-button>
+                <mat-radio-button value="Karl Marx" class="mb-2">Karl Marx</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button (click)="onNextGeografia()" mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+<!-- Geografia -->
+<mat-card formControlName = "q4" [ngClass]="toArte === true ? 'niente' : 'vabene'"  *ngIf="toGeografia" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Geografia:** Quale catena montuosa separa l'Europa dall'Asia?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+      <mat-radio-group formControlName="q4"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Monti Urali" class="mb-2">Monti Urali</mat-radio-button>
+                <mat-radio-button value="Himalaya" class="mb-2">Himalaya</mat-radio-button>
+                <mat-radio-button value="Alpi" class="mb-2">Alpi</mat-radio-button>
+                <mat-radio-button value="Ande" class="mb-2">Ande</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button (click)="onNextToArte()" mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+<!-- Arte -->
+<mat-card formControlName = "q5" [ngClass]="toInformatica === true ? 'niente' : 'vabene'" *ngIf="toArte" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Arte:** Quale movimento artistico è caratterizzato dall'uso di colori vivaci e pennellate visibili, spesso con soggetti della vita quotidiana?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+       <mat-radio-group formControlName="q5"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Cubismo" class="mb-2">Cubismo</mat-radio-button>
+                <mat-radio-button value="Surrealismo" class="mb-2">Surrealismo</mat-radio-button>
+                <mat-radio-button value="Rinascimento" class="mb-2">Rinascimento</mat-radio-button>
+                <mat-radio-button value="Impressionismo" class="mb-2">Impressionismo</mat-radio-button>
+            </mat-radio-group>
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button (click)="onNextStopInformatica()" mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+ 
+
+
+<!-- Informatica -->
+<mat-card formControlName = "q6"  *ngIf="toInformatica"  class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Informatica:** Cosa significa l'acronimo 'HTTP'?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+        <mat-radio-group formControlName="q6"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Home Tool Transfer Program" class="mb-2">Home Tool Transfer Program</mat-radio-button>
+                <mat-radio-button value="High-Tech Text Processor" class="mb-2">High-Tech Text Processor</mat-radio-button>
+                <mat-radio-button value="Hyperlink Tracking Protocol" class="mb-2">Hyperlink Tracking Protocol</mat-radio-button>
+                <mat-radio-button value="HyperText Transfer Protocol" class="mb-2">HyperText Transfer Protocol</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Invia Dati </button>
+    </mat-card-actions>
+</mat-card>
+
+</form>

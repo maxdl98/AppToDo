@@ -57,12 +57,17 @@ export class RegistrazioneComponent {
 
   onSubmit() {
   const data = this.userForm.value.data;
-  const nome = this.userForm.value.nome;nome
+  const nome = this.userForm.value.nome;
   const email = this.userForm.value.email;
   const regione = this.userForm.value.regione;
   const password = this.userForm.value.password;
   const numero = this.userForm.value.numero
-  
+
+   if(nome && email && regione){
+    localStorage.setItem('nome',nome)
+    localStorage.setItem('email',email)
+    localStorage.setItem('regione',regione)
+   }   
 
   this.service.signUp({nome, email, data,numero,regione,password, returnSecureToken: true}
 
