@@ -6,11 +6,12 @@ import { IconType } from '@angular/material/icon/testing';
 import { AuthserviceService } from '../../auth/authservice.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { NavComponent } from "../nav/nav.component";
 
 
 @Component({
   selector: 'app-esercizio',
-  imports: [CommonModule,NgIf,FormsModule,NgFor,MatIconModule,MatToolbarModule,MatButtonModule],
+  imports: [CommonModule, NgIf, FormsModule, NgFor, MatIconModule, MatToolbarModule, MatButtonModule, NavComponent],
   standalone : true,
   templateUrl: './EsercizioComponent.html',
   styleUrl: './esercizio.component.css'

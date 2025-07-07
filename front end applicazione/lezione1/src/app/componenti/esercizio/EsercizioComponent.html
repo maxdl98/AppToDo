@@ -6,6 +6,7 @@
 <ul class="lista"> 
 
 
+
 <li  [ngClass]="t.length> 4 ? 'verde' : 'arancione'" *ngFor="let t of tasks; let i = index">
   <span  class="task-text">{{ t }}</span>
   <span  class="actions">

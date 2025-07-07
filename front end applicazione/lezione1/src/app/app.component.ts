@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from "./componenti/login/login.component";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { NavComponent } from "./componenti/nav/nav.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgFor, CommonModule, FormsModule, EsercizioComponent, LoginComponent, MatIconModule, RouterLink, HttpClientModule], // Aggiungi HttpClientModule se non è già nel tuo AppModule
+  imports: [RouterOutlet, NgFor, CommonModule, FormsModule, EsercizioComponent, LoginComponent, MatIconModule, RouterLink, HttpClientModule, NavComponent], // Aggiungi HttpClientModule se non è già nel tuo AppModule
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

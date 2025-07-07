@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../../auth/authservice.service';
@@ -13,6 +13,8 @@ import { AuthserviceService } from '../../auth/authservice.service';
 export class NavComponent {
   urlExcel = "http://localhost:8080/api/tickets/exportExcel"
   urlPdf = "http://localhost:8080/api/tickets/exportPdf"
+ 
+  
  constructor(private route:Router, private service:AuthserviceService) {
   
  }

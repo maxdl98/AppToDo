@@ -1,9 +1,10 @@
 package com.example.ProvaApp.service;
 
-import com.example.ProvaApp.repository.FormatoreRepository;
 import com.example.ProvaApp.entity.Formatore;
-
+import com.example.ProvaApp.repository.FormatoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,14 @@ public class FormatoreService   {
     public List<Formatore> getAll(){
         return formatoreRepository.findAll();
     }
+
+
+    public Page<Formatore> getFormatore2(int page, int size){
+        return formatoreRepository.findAll(PageRequest.of(page,size));
+    }
+
+
+
 
 
 

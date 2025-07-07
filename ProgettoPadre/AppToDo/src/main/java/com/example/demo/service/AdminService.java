@@ -16,7 +16,7 @@ public class AdminService {
     private final AdminRepository arepository;
 
 
-    public AdminService(AdminRepository arepository){
+    public AdminService(AdminRepository arepository) {
         this.arepository = arepository;
     }
 

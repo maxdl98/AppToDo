@@ -15,14 +15,35 @@ public class Quiz {
     private String risposta3;
     private String risposta4;
     private String risposta5;
+    private String risposta6;
+
+    private int punteggioTotale;
+
+    private String voto;
 
 
-    public Quiz(String risposta1,String risposta2,String risposta3, String risposta4, String risposta5) {
+    public Quiz(String risposta1,String risposta2,String risposta3, String risposta4, String risposta5,String risposta6,int punteggioTotale) {
         this.risposta1 = risposta1;
         this.risposta2 = risposta2;
         this.risposta3 = risposta3;
         this.risposta4 = risposta4;
         this.risposta5 = risposta5;
+        this.risposta6 = risposta6;
+        this.punteggioTotale = punteggioTotale;
+
+    }
+
+    public Quiz() {
+
+    }
+
+
+    public int getPunteggioTotale() {
+        return punteggioTotale;
+    }
+
+    public void setPunteggioTotale(int punteggioTotale) {
+        this.punteggioTotale = punteggioTotale;
     }
 
     public String getRisposta1() {
@@ -69,14 +90,35 @@ public class Quiz {
         this.risposta5 = risposta5;
     }
 
+
+    public String getRisposta6() {
+        return risposta6;
+    }
+
+    public void setRisposta6(String risposta6) {
+        this.risposta6 = risposta6;
+    }
+
+
+    public String getVoto() {
+        return voto;
+    }
+
+    public void setVoto(String voto) {
+        this.voto = voto;
+    }
+
     @Override
     public String toString() {
         return "Quiz{" +
-                "risposta1='" + risposta1 + '\'' +
+                "id=" + id +
+                ", risposta1='" + risposta1 + '\'' +
                 ", risposta2='" + risposta2 + '\'' +
                 ", risposta3='" + risposta3 + '\'' +
                 ", risposta4='" + risposta4 + '\'' +
                 ", risposta5='" + risposta5 + '\'' +
+                ", risposta6='" + risposta6 + '\'' +
+                ", punteggioTotale='" + punteggioTotale + '\'' +
                 '}';
     }
 }

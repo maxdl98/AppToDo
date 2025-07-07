@@ -4,12 +4,15 @@ import { UserModule } from '../modelli/user/user.module';
 import { Router, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import {jwtDecode} from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
+
+  urlQuiz = "http://localhost:8080/api/v1/quiz"
   
   urlExcel = "http://localhost:8080/api/tickets/exportExcel"
 
@@ -125,6 +128,11 @@ export class AuthserviceService {
   loginAdmin(email:string,password:string){
     return this.http.get(`${this.urlLoginAdmin}?email=${email}&password=${password}`)
 
+  }
+
+
+   inviaQuiz(risposte : any) {
+    return this.http.post<any>(this.urlQuiz, risposte);
   }
 
   createUser(email:string,id:string, token: string, nome : string ){

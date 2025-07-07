@@ -22,6 +22,8 @@ export class TicketchiusiComponent implements OnInit {
 
   constructor(private service: AuthserviceService) {}
 
+
+  // se io cambio la paginazione, faccio la chiamata con la nuova paginazione, se ne chiedo 5, me ne restituisce 5 
   ngOnInit(): void {
     this.service.getFormatori().subscribe(data => {
       this.dataSource.data = data as any[];

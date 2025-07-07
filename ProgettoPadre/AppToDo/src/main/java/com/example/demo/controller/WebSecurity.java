@@ -3,14 +3,9 @@ package com.example.demo.controller;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -37,6 +32,7 @@ public class WebSecurity {
                         .requestMatchers(HttpMethod.POST, "/api/utenti/login/ut").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/formatore/invioMail").hasRole("Admin")
                         .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori").hasRole("User")
+                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori2").hasRole("Admin")
 
                         .anyRequest().permitAll()
                 )

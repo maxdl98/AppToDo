@@ -6,14 +6,13 @@ import com.example.ProvaApp.service.FormatoreService;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -111,13 +110,19 @@ public class FormatoreController {
     public ResponseEntity<List<Formatore>>getAll(){
 
        List<Formatore> listaFormatori = new ArrayList<Formatore>();
-        for(int i = 0; i<cont; i++){
            listaFormatori =  service.getAll();
-        }
+
         return new ResponseEntity<>(listaFormatori, HttpStatus.OK);
 
 
 
+    }
+
+
+
+    @GetMapping("/getFormatori2")
+    public Page<Formatore> getAllFormatori(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "5")int size){
+        return service.getFormatore2(page,size);
     }
 
 

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { link } from 'fs';
 import { CreateticketComponent } from '../createticket/createticket.component';
+import { NavComponent } from "../nav/nav.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +30,8 @@ import { CreateticketComponent } from '../createticket/createticket.component';
     MatButtonModule,
     CommonModule,
     MatCardModule,
-  ],
+    NavComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
