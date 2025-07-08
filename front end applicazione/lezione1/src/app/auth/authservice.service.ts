@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModule } from '../modelli/user/user.module';
 import { Router, RouterStateSnapshot } from '@angular/router';
@@ -6,7 +6,14 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import {jwtDecode} from 'jwt-decode';
 import { Observable } from 'rxjs';
 
-
+export interface Page<T> {
+    content: T[];
+  totalElements: number;
+  totalPages: number;
+  number: number;        
+  size: number;         
+  numberOfElements: number;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -29,7 +36,7 @@ export class AuthserviceService {
 
   urlTickets2 = "http://localhost:8082/api/formatore/invioMail"
 
-  urlFormatori = "http://localhost:8082/api/formatore/getFormatori";
+  urlFormatori = "http://localhost:8082/api/formatore/getFormatori2";
 
   urlLoginAdmin = "http://localhost:8080/api/v1/login"
 
@@ -59,6 +66,8 @@ export class AuthserviceService {
 }
 
  
+
+
 
 
 
@@ -140,8 +149,9 @@ export class AuthserviceService {
   }
 
    
-  getFormatori(){
-    return this.http.get(`${this.urlFormatori}`)
+  getFormatori(page:number, size:number) : Observable<any>{
+  const url = `${this.urlFormatori}?page=${page}&size=${size}`;
+    return this.http.get<Page<any>>(url);
   }
 
   

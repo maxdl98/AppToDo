@@ -121,8 +121,10 @@ public class FormatoreController {
 
 
     @GetMapping("/getFormatori2")
-    public Page<Formatore> getAllFormatori(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "5")int size){
-        return service.getFormatore2(page,size);
+    public Page<Formatore> getAllFormatori(@RequestParam int page,@RequestParam int size){
+
+       return service.getFormatore2(page,size);
+
     }
 
 

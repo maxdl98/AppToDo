@@ -31,8 +31,7 @@ public class WebSecurity {
                         .requestMatchers(HttpMethod.POST, "/api/tickets/submit").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/utenti/login/ut").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/formatore/invioMail").hasRole("Admin")
-                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori").hasRole("User")
-                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori2").hasRole("Admin")
+                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori2").hasRole("User")
 
                         .anyRequest().permitAll()
                 )
