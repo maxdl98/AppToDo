@@ -24,3 +24,11 @@
 .button-nonabilitato{
   background-color: rgb(241, 228, 228);
 }
+
+.opaco{
+  background-color: gray;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+

@@ -1,0 +1,27 @@
+
+
+
+mat-card{
+    background-color: grey;
+    border-radius: 20px;
+    width: 500px;
+    height: 150px;
+  margin-top: 386px;
+
+}
+
+mat-card-title{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.divv{
+    position: relative;
+    margin-top: 30px;
+}

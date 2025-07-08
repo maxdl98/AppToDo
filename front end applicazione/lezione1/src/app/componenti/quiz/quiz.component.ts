@@ -1,5 +1,5 @@
 import { CommonModule, JsonPipe, NgClass, NgIf } from '@angular/common';
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, inject, Input, NgModule, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, FormGroupName, FormsModule, NgModel, NgModelGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,19 +7,31 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRecycleRows } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio'; // <-- Assicurati che sia importato qui
 import { AuthserviceService } from '../../auth/authservice.service';
+import { MessaggioAutomaticoComponent } from "../messaggio-automatico/messaggio-automatico.component";
+import { EventEmitter } from 'stream';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-quiz',
-  imports: [MatCardModule,MatCardModule,MatButtonModule,MatIconModule,FormsModule, ReactiveFormsModule, ReactiveFormsModule, JsonPipe, NgIf, NgClass,FormsModule,MatButtonModule,FormsModule,MatCardModule,MatButtonModule,MatRadioModule,CommonModule],
+  imports: [MatCardModule, MatCardModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, ReactiveFormsModule, JsonPipe, NgIf, NgClass, FormsModule, MatButtonModule, FormsModule, MatCardModule, MatButtonModule, MatRadioModule,CommonModule,MessaggioAutomaticoComponent],
+  standalone: true,
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })
 export class QuizComponent {
 
+
+
+ 
+
+
 constructor(private service:AuthserviceService){
 
 }
+  
+messaggioPersonalizzato = "Hai completato il quiz. Ti contatteremo presto!";
 
+ 
 
 risposta1! : FormControl
 risposta2! : FormControl
@@ -27,7 +39,8 @@ risposta3! : FormControl
 risposta4! : FormControl
 risposta5! : FormControl
 risposta6! : FormControl
-
+  
+  MessaggioAutomatico: boolean = false;
 
   toPsicologia : boolean = false; 
 
@@ -132,8 +145,16 @@ submitQuiz() {
   }
 
 
+  
 
 
+
+ cambioMex(){
+  this.MessaggioAutomatico = true;
+
+  
+  
+ }
 
 
 

@@ -27,6 +27,7 @@ import { NavComponent } from './componenti/nav/nav.component';
 import { ProfiloUtenteComponent } from './componenti/profilo-utente/profilo-utente.component';
 import { InformazioniComponent } from './componenti/informazioni/informazioni.component';
 import { QuizComponent } from './componenti/quiz/quiz.component';
+import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
 
 export const routes: Routes = [
   { path: 'navigazione', component: NavComponent },
@@ -37,6 +38,7 @@ export const routes: Routes = [
   { path: 'allenamento', component: AllenamentoComponent },
   { path: 'listaUtenti', component: HomeComponent },
   { path: 'ticket', component: TicketComponent },
+  {path: 'messaggioAutomatico', component: MessaggioAutomaticoComponent},
   { path: 'createticket', component: CreateticketComponent },
   {path:'profilo', component : ProfiloUtenteComponent , children: [
     {path: 'profilo1', component: InformazioniComponent}
