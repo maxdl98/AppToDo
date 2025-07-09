@@ -28,11 +28,13 @@ import { ProfiloUtenteComponent } from './componenti/profilo-utente/profilo-uten
 import { InformazioniComponent } from './componenti/informazioni/informazioni.component';
 import { QuizComponent } from './componenti/quiz/quiz.component';
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
+import { FotologinComponent } from './componenti/fotologin/fotologin.component';
 
 export const routes: Routes = [
   { path: 'navigazione', component: NavComponent },
 
   { path: 'login', component: LoginComponent },
+  {path: 'fotologin', component: FotologinComponent},
   { path: 'signin', component: RegistrazioneComponent },
   { path: 'esercizio', component: EsercizioComponent },
   { path: 'allenamento', component: AllenamentoComponent },

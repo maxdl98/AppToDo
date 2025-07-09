@@ -7,10 +7,14 @@ import { ErroreService } from '../../auth/errore.service';
 import { AuthserviceService } from '../../auth/authservice.service';
 import {jwtDecode} from 'jwt-decode';  // corretto import
 import { Router } from '@angular/router';
+import { MatCardModule } from "@angular/material/card";
+import { FotologinComponent } from '../fotologin/fotologin.component';
+
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, MatInputModule, MatCardModule, FotologinComponent],
+  standalone : true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

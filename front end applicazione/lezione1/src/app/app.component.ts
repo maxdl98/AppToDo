@@ -1,5 +1,5 @@
 import { CommonModule, NgFor, isPlatformBrowser } from '@angular/common'; // Importa isPlatformBrowser
-import { Component, HostListener, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core'; // Importa Inject e PLATFORM_ID
+import { Component, HostListener, OnDestroy, OnInit, Inject, PLATFORM_ID, Input } from '@angular/core'; // Importa Inject e PLATFORM_ID
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { EsercizioComponent } from "./componenti/esercizio/EsercizioComponent";
 import { FormsModule } from '@angular/forms';
@@ -9,10 +9,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { NavComponent } from "./componenti/nav/nav.component";
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
+import { FotologinComponent } from "./componenti/fotologin/fotologin.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgFor, CommonModule, FormsModule, EsercizioComponent, LoginComponent, MatIconModule, RouterLink, HttpClientModule, NavComponent,MessaggioAutomaticoComponent], // Aggiungi HttpClientModule se non è già nel tuo AppModule
+  imports: [RouterOutlet, NgFor, CommonModule, FormsModule, EsercizioComponent, LoginComponent, MatIconModule, RouterLink, HttpClientModule, NavComponent, MessaggioAutomaticoComponent, FotologinComponent], // Aggiungi HttpClientModule se non è già nel tuo AppModule
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -20,6 +21,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Inietta PLATFORM_ID nel costruttore
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
+
+
+  @Input() loginBackground! : boolean ;
+
 
   private startTime!: number;
   private userId!: number | null;
@@ -40,6 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
       if (storedTimestamp && storedUserId) {
         this.startTime = parseInt(storedTimestamp, 10);
         this.userId = parseInt(storedUserId, 10);
+
       }
     }
   }

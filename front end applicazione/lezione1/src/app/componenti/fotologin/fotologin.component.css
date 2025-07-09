@@ -1,0 +1,10 @@
+.back{
+background-image: url("https://images.pexels.com/photos/26201451/pexels-photo-26201451.jpeg?_gl=1*16lui72*_ga*NzY3NTM3MTUwLjE3NTIwNTUzNDc.*_ga_8JE65Q40S6*czE3NTIwNTUzNDckbzEkZzEkdDE3NTIwNTU0MjIkajQ1JGwwJGgw"); 
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+width: 100vw;
+ height: 100vh;
+ z-index: 0;
+}
+

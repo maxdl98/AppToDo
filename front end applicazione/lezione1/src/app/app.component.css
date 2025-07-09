@@ -1,6 +1,7 @@
 
 html,body{
-    height: 1000px;
+    height: 500px;
+    width: 600px;
 }
 
 
@@ -19,3 +20,4 @@ input{
 body{
     background-color: rgb(167, 44, 44);
 }
+
