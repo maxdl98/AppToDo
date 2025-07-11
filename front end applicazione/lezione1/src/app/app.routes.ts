@@ -24,8 +24,6 @@ import { TicketricevutiComponent } from './componenti/ticketricevuti/ticketricev
 import { TicketchiusiComponent } from './componenti/ticketchiusi/ticketchiusi.component';
 import { LoginAdminComponent } from './componenti/login-admin/login-admin.component';
 import { NavComponent } from './componenti/nav/nav.component';
-import { ProfiloUtenteComponent } from './componenti/profilo-utente/profilo-utente.component';
-import { InformazioniComponent } from './componenti/informazioni/informazioni.component';
 import { QuizComponent } from './componenti/quiz/quiz.component';
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
 import { FotologinComponent } from './componenti/fotologin/fotologin.component';
@@ -42,9 +40,6 @@ export const routes: Routes = [
   { path: 'ticket', component: TicketComponent },
   {path: 'messaggioAutomatico', component: MessaggioAutomaticoComponent},
   { path: 'createticket', component: CreateticketComponent },
-  {path:'profilo', component : ProfiloUtenteComponent , children: [
-    {path: 'profilo1', component: InformazioniComponent}
-  ]},
   { path: 'ticketchiusi', component: TicketchiusiComponent },
 
   { path: 'todo', canActivate: [authGuard], component: EsercizioComponent },

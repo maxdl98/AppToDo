@@ -140,9 +140,7 @@ export class DashboardComponent {
     this.route.navigate(['login']);
   }
 
-  OnProfilo() {
-    this.route.navigate(['profilo']);
-  }
+  
 
   onTickets() {
     this.route.navigate(['ticket']);
