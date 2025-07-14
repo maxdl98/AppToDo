@@ -13,15 +13,15 @@
     <!-- Sezione immatricolazione -->
     <div class="immatricolazioni "> 
 
-     <mat-optgroup label="Materie" style="font-weight: bold; font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> 
-    <mat-option value="Sociologia">Sociologia</mat-option>
-    <mat-option value="Psicologia" >Psicologia</mat-option>
-    <mat-option value="Filosofia">Filosofia</mat-option>
-    <mat-option value="Geografia">Geografia</mat-option>
-    <mat-option value="Arte">Arte</mat-option>
-    <mat-option value="Informatica">Informatica</mat-option>
-    <mat-option value="Chimica">Chimica</mat-option>
-    <mat-option value="Storia">Storia</mat-option>
+     <mat-optgroup  label="Materie" style="font-weight: bold; font-size: 20px; font-family:cursive"> 
+    <mat-option value="Sociologia">{{this.currentLang === 'it' ? 'Sociologia': 'Sociology'}}</mat-option>
+    <mat-option value="Psicologia" >{{this.currentLang === 'it' ? 'Psicologia': 'Psychology'}}</mat-option>
+    <mat-option value="Filosofia">{{this.currentLang === 'it'? 'Filosofia' : 'Philosophy'}}</mat-option>
+    <mat-option value="Geografia">{{this.currentLang === 'it'? 'Geografia' : 'geography'}}</mat-option>
+    <mat-option value="Arte">{{this.currentLang === 'it'? 'Arte' : 'Art'}}</mat-option>
+    <mat-option value="Informatica">{{this.currentLang === 'it'? 'Informatica': 'Informatics'}}</mat-option>
+    <mat-option value="Chimica">{{this.currentLang === 'it'? 'Chimica': 'Chemistry'}}</mat-option>
+    <mat-option value="Storia">{{this.currentLang === 'it'? 'Storia' : 'History'}}</mat-option>
     </mat-optgroup>
 
     </div> 

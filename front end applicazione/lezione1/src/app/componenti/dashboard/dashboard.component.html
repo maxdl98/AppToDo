@@ -1,14 +1,14 @@
 <div class="min-vh-100 d-flex flex-column">
   <mat-toolbar style="background-color: rgb(201, 186, 181);">
     <img  style="width: 100px; height: 100px;"  src="https://ixplo.net/wp-content/uploads/2022/08/cropped-Senza-titolo.png"> 
-    <span>Ixplò</span>
+    <span style="font-family: cursive; font-size: 20px;">Ixplò</span>
     <span class="ms-auto"></span>
     
     <div class="d-flex flex-direction-row gap-5">
     <button mat-icon-button   aria-label="Logout" class="mx-5 "> </button>
        <button (click)="changeLang('it')" [disabled]="currentLang === 'it'" style="margin-left: 20px; position: relative;">IT</button>
        <button (click)="changeLang('en')" [disabled]="currentLang === 'en'">EN</button>
-      <p class="fs-5 mt-4 ticket" (click)="onTickets()">{{currentLang === 'it'? 'Crea Ticket' : 'Create Ticket'}} </p>
+      <p class="fs-5 mt-4 ticket" style="font-family: cursive;" (click)="onTickets()">{{currentLang === 'it'? 'Crea Ticket' : 'Create Ticket'}} </p>
         <mat-icon style="cursor: pointer;" class="mt-4"(click)="onLogout()" >logout</mat-icon>
     </div>
   </mat-toolbar>
@@ -16,7 +16,7 @@
   <mat-drawer-container style="height: 400px;"  class="flex-grow-1" autosize>
     <mat-drawer mode="side" opened class="bg-light p-2 overflow-auto" class="bg-success p-2 overflow-auto">
       <mat-list class="d-flex flex-column w-100">
-        <mat-list-item *ngFor="let materia of materie" class="hover-effect mb-5 overflow-hidden" [routerLink]="materia.link" routerLinkActive="active">
+        <mat-list-item style="font-family: cursive;" *ngFor="let materia of materie" class="hover-effect mb-5 overflow-hidden" [routerLink]="materia.link" routerLinkActive="active">
           {{ materia.nome }}
         </mat-list-item>
       </mat-list>
@@ -33,7 +33,7 @@
 
 <!-- About -->
   
-<div class="col">
+<div class="col" style="font-family: cursive;"   >
   <h3 class="ms-5 mb-4 fs-4">{{ currentLang === 'it' ? 'Chi siamo' : 'About' }}</h3>
 
   <div class="ms-5 mt-3 text-white d-flex flex-column gap-2">
@@ -57,18 +57,18 @@
       <h3 class="ms-5 mb-4 fs-4">{{ currentLang === 'it' ? 'Contatti' : 'Contacts' }}</h3>
 
       <div class="ms-5 mt-3 text-white d-flex">
-        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Indirizzo fisico:' : 'Physical address:' }}</span>
-        <span id="indirizzo" class="fst-italic">Via Dello Scirè 6</span>
+        <span style="font-family: cursive;" class="me-2 fw-bold">{{ currentLang === 'it' ? 'Indirizzo fisico:' : 'Physical address:' }}</span>
+        <span style="font-family: cursive;"         id="indirizzo" class="fst-italic">Via Dello Scirè 6</span>
       </div>
 
       <div class="ms-5 mt-3 text-white d-flex">
-        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Numero di telefono:' : 'Phone number:' }}</span>
-        <span id="numero">089345678</span>
+        <span style="font-family: cursive;"    class="me-2 fw-bold">{{ currentLang === 'it' ? 'Numero di telefono:' : 'Phone number:' }}</span>
+        <span style="font-family: cursive;"    id="numero">089345678</span>
       </div>
 
       <div class="ms-5 mt-3 text-white d-flex">
-        <span class="me-2 fw-bold">{{ currentLang === 'it' ? 'Orari di apertura:' : 'Opening hours:' }}</span>
-        <span id="orario">8:00 - 13:00 / 14:00 - 18:00</span>
+        <span style="font-family: cursive;"    class="me-2 fw-bold">{{ currentLang === 'it' ? 'Orari di apertura:' : 'Opening hours:' }}</span>
+        <span style="font-family: cursive;"    id="orario">8:00 - 13:00 / 14:00 - 18:00</span>
       </div>
     </div>
 
@@ -78,9 +78,9 @@
   <!-- Social -->
 
  <div class="col">
-  <h3 class="ms-5 mb-4 fs-4">Social</h3>
+  <h3 style="font-family: cursive;"    class="ms-5 mb-4 fs-4">Social</h3>
 
-  <div class="ms-5 d-flex flex-column gap-3">
+  <div style="font-family: cursive;"    class="ms-5 d-flex flex-column gap-3">
     <a href="https://www.facebook.com/tuapagina" target="_blank" class="text-white text-decoration-none">
       <i class="bi bi-facebook me-2"></i>Facebook
     </a>

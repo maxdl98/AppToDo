@@ -8,26 +8,26 @@
 
 
  
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
+  <ng-container  matColumnDef="email">
+    <th style="background-color: rgb(186, 190, 186); border: solid 2px black" mat-header-cell *matHeaderCellDef> Email </th>
     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="problematica">
-    <th mat-header-cell *matHeaderCellDef> Problematica </th>
+    <th style="background-color: rgb(186, 190, 186); border: solid 2px black;" mat-header-cell *matHeaderCellDef> Problematica </th>
     <td mat-cell *matCellDef="let element"> {{element.problematica}} </td>
   </ng-container>
   
  
   <!-- Weight Column -->
   <ng-container matColumnDef="contenuto">
-    <th mat-header-cell *matHeaderCellDef> Contenuto </th>
+    <th style="background-color: rgb(186, 190, 186); border: solid 2px black" mat-header-cell *matHeaderCellDef> Contenuto </th>
     <td mat-cell *matCellDef="let element"> {{element.contenuto}} </td>
    </ng-container>
 
    <ng-container matColumnDef="azioni">
-  <th mat-header-cell *matHeaderCellDef>  </th>
+  <th style="background-color: rgb(186, 190, 186);border: solid 2px black" mat-header-cell *matHeaderCellDef>  </th>
   <td mat-cell *matCellDef="let element">
     <button mat-raised-button color="primary" (click)="onAction(element)">Risolvi Ticket</button>
   </td>
@@ -51,15 +51,15 @@
 
 
   <mat-form-field class="mt-2">
-  <mat-label>Problematica</mat-label>
-  <input matInput [ngModel]="selectedProblematica" name="problematica">
+  <mat-label class="prob fw-bold">Problematica</mat-label>
+  <input  matInput [ngModel]="selectedProblematica" name="problematica">
 </mat-form-field>
 <mat-form-field>
-  <mat-label>Email</mat-label>
+  <mat-label class="prob fs-5 fw-bold">Email</mat-label>
   <input matInput [ngModel]="selectedEmail" name="email">
 </mat-form-field>
-<mat-form-field class="mt-5 contenuto">
-  <mat-label>Contenuto ticket </mat-label>
+<mat-form-field class="mt-5 contenuto prob fs-5 ">
+  <mat-label class="fw-bold">Contenuto ticket </mat-label>
   <textarea [ngModel]="selectContenuto" name="contenuto" style="overflow: hidden;" class="w-100" matInput ></textarea>
 </mat-form-field>
 
@@ -71,17 +71,17 @@
 <div class="mt-5 sezioneOperatore"> 
  <h3> Sezione Operatore </h3>
   <mat-form-field>
-  <mat-label>Nome Operatore </mat-label>
-  <input matInput [(ngModel)]="nomeOperatore"  name="nomeOperatore">
+  <mat-label class="prob fw-bold fs-4">Nome Operatore </mat-label>
+  <input matInput  [(ngModel)]="nomeOperatore"  name="nomeOperatore">
 </mat-form-field>
-<mat-form-field class="risposta">
-  <mat-label>La tua risposta </mat-label>
+<mat-form-field class="">
+  <mat-label class="fw-bold fs-4">La tua risposta </mat-label>
   <textarea [(ngModel)]="risposta" name="risposta" style="overflow: hidden; resize: none;" class="w-100" matInput ></textarea>
 </mat-form-field>
 <mat-form-field appearance="fill">
-  <mat-label>Libri disponibili in sede:</mat-label>
-  <mat-select [(ngModel)]="libroSelezionato" name="libro">
-    <mat-option  *ngFor="let libro of libriDisponibili" [value]="libro">
+  <mat-label class="prob fw-bold fs-4 ">Libri disponibili in sede:</mat-label>
+  <mat-select  [(ngModel)]="libroSelezionato" name="libro">
+    <mat-option class="bg-white libro " *ngFor="let libro of libriDisponibili" [value]="libro">
       {{ libro }}
     </mat-option>
   </mat-select>

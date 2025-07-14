@@ -38,6 +38,7 @@ export const routes: Routes = [
   { path: 'allenamento', component: AllenamentoComponent },
   { path: 'listaUtenti', component: HomeComponent },
   { path: 'ticket', component: TicketComponent },
+  
   {path: 'messaggioAutomatico', component: MessaggioAutomaticoComponent},
   { path: 'createticket', component: CreateticketComponent },
   { path: 'ticketchiusi', component: TicketchiusiComponent },

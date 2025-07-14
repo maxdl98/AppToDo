@@ -15,13 +15,14 @@
   border-radius: 20px;
   position: absolute;
   display: flex;
-   flex-direction: column; 
-   width: 699px;
-   background-color: grey;
-   margin-top: -1000px;
-   margin-left:750px;
-   width: 600px;
-   height: 900px;
+  right: 50%;
+  top: 70%;
+  left: 30%;
+  flex-direction: column; 
+  background-color: grey;
+  margin-bottom: 150px;
+  width: 800x;
+  height: 900px;
    padding: 30px;
    z-index: 1000;
 }
@@ -44,4 +45,12 @@
   border-radius: 10px;
   margin-left: 150px;
   margin-top: 50px;
+}
+
+.prob{
+  font-family: cursive;
+}
+
+.libro:hover{
+  color: black;
 }
