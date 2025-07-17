@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,6 +63,27 @@ public class AdminController {
 
     }
 
+
+
+
+
+
+
+    @GetMapping("password")
+    public ResponseEntity<Optional<Admin>>findByPassword(@RequestParam String password) throws Exception{
+        Optional<Admin> adminPassword = aservice.findByPassword(password);
+
+        if(adminPassword.isPresent()){
+            return new ResponseEntity<>(adminPassword, HttpStatus.OK);
+        } else{
+             throw new Error("c'è un errore");
+        }
+
+    }
+
+
+
+
     @GetMapping("/login")
     public ResponseEntity<?> login(@RequestParam Map<String, String> loginData) {
         String email = loginData.get("email");
@@ -91,7 +113,7 @@ public class AdminController {
             response.put("token", token);
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(8000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

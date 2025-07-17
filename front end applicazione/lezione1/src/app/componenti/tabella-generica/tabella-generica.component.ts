@@ -10,6 +10,8 @@ import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialog
 import { setTimeout } from 'node:timers/promises';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Router } from '@angular/router';
+import { f } from "../../../../node_modules/@angular/material/icon-module.d-sA1hmRKS";
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -24,13 +26,13 @@ import { Router } from '@angular/router';
     ReactiveFormsModule,
     MatDialogModule,
     MatButton,
+    MatIconModule
 ],
   templateUrl: './tabella-generica.component.html',
   styleUrls: ['./tabella-generica.component.css']
 })
 export class TabellaGenericaComponent implements OnInit {
    showForm = true;
-   
    mostraPagina = false;
 
   constructor(private service:AuthserviceService, private element:ElementRef, private route:Router){
@@ -62,7 +64,8 @@ export class TabellaGenericaComponent implements OnInit {
    
       this.showForm = false
       
-
+       
+      
       
      
 
@@ -70,6 +73,7 @@ export class TabellaGenericaComponent implements OnInit {
     
     this.service.sendEmail(this.urlEmail, this.formGroup.value.email as string)
     .subscribe(data =>{
+
     console.log(data);
     
      
@@ -81,6 +85,12 @@ export class TabellaGenericaComponent implements OnInit {
  
      
 
+  }
+
+  close(){
+    this.showForm = false; 
+    this.route.navigate(['dash' , 'paginanuova']);
+  
   }
 
 

@@ -10,7 +10,7 @@
 }
 
 .opzioniServizi{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .formIntero{
@@ -19,6 +19,10 @@
     position: relative;
     left: 600px;
     margin-top: 50px;
+    border: solid 2px black;
+    padding: 28px;
+    border-radius: 20px;
+    background-color: rgb(25, 135, 84);   ;
 }
 
 .contenuto{
@@ -31,8 +35,8 @@
     background-color: grey;
     width: 180px;
     border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 140px;
+    margin-top: 80px;
+    margin-left: 200px;
 }
 
 .info{
@@ -56,7 +60,7 @@
     width: 160px;
     position: relative;
     left: 158px;
-    top: 21px;
+    top: 35px;
     border-radius: 20px;
 }
 
@@ -68,3 +72,20 @@
 .nonsfocato{
     filter: none;
 }
+
+.over:hover{
+    border: solid 4px black;
+    border-radius: 10px;
+    color: green;
+    background-color: green;
+
+}
+
+
+.title{
+    font-weight: bold;
+     font-size: 20px;
+      font-family:cursive;
+}
+
+

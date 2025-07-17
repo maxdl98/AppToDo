@@ -7,6 +7,10 @@ import com.example.demo.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Optional;
 
 @Service
@@ -26,6 +30,21 @@ public class AdminService {
     public Optional<Admin> login(String email, String password) {
         return arepository.findByEmailAndPassword(email, password);
     }
+
+    public Optional<Admin> findByPassword(String password){
+        return arepository.findByPassword(password);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

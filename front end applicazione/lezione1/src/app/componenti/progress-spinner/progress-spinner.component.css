@@ -1,0 +1,26 @@
+
+
+mat-spinner {
+  display: block !important;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: red;
+}
+
+mat-spinner svg {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: mat-progress-spinner-linear-rotate 2s linear infinite !important;
+}
+
+mat-spinner circle {
+  stroke: currentColor !important;
+  fill: none !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  background-color: aqua;
+}

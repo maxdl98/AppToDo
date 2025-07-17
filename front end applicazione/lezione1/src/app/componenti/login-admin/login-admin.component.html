@@ -1,7 +1,11 @@
+<app-fotologin-admin> 
+    <div class="css-spinner" *ngIf="visibleSpinner"></div>
+    <div [ngClass]="visibleSpinner === true ? 'niente' : 'si'">
+<img   *ngIf="ControlloEmail?.value == emailMia" src="/images/max.jpg" class="imm" alt="fotoMax" width="200" height="200"> 
 <form [formGroup]="adminForm"  style="display: flex; flex-direction: column;">
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input  matInput formControlName="email">
+    <input   matInput formControlName="email">
   </mat-form-field>
 
   <mat-form-field>
@@ -9,5 +13,7 @@
     <input matInput  type="password" formControlName="password">
   </mat-form-field>
 
-  <button (click)="onSubmit()" type="submit" mat-raised-button color="primary">Invia</button>
+  <button (click)="onSubmit()" class="mit" type="submit" mat-raised-button color="primary">Invia</button>
 </form>
+</div>
+</app-fotologin-admin>

@@ -1,10 +1,14 @@
-<form [formGroup]="InvioDati" [ngClass]="mostraInfo == true ? 'sfocato' : 'nonsfocato'"> 
+<form  [formGroup]="InvioDati" [ngClass]="mostraInfo == true ? 'sfocato' : 'nonsfocato'"> 
 <div class="mt-5 formIntero"> 
 <div class="d-flex flex-direction-row"> 
 <label> Email:  </label>
   
   <span> {{ emailUtente }}</span>
 </div>
+
+
+
+
 <mat-form-field class="mt-5">
   <mat-label>{{this.currentLang === 'it'?'Problematica' : 'Issue'}}</mat-label>
   <mat-select formControlName="problematica">
@@ -13,15 +17,15 @@
     <!-- Sezione immatricolazione -->
     <div class="immatricolazioni "> 
 
-     <mat-optgroup  label="Materie" style="font-weight: bold; font-size: 20px; font-family:cursive"> 
-    <mat-option value="Sociologia">{{this.currentLang === 'it' ? 'Sociologia': 'Sociology'}}</mat-option>
-    <mat-option value="Psicologia" >{{this.currentLang === 'it' ? 'Psicologia': 'Psychology'}}</mat-option>
-    <mat-option value="Filosofia">{{this.currentLang === 'it'? 'Filosofia' : 'Philosophy'}}</mat-option>
-    <mat-option value="Geografia">{{this.currentLang === 'it'? 'Geografia' : 'geography'}}</mat-option>
-    <mat-option value="Arte">{{this.currentLang === 'it'? 'Arte' : 'Art'}}</mat-option>
-    <mat-option value="Informatica">{{this.currentLang === 'it'? 'Informatica': 'Informatics'}}</mat-option>
-    <mat-option value="Chimica">{{this.currentLang === 'it'? 'Chimica': 'Chemistry'}}</mat-option>
-    <mat-option value="Storia">{{this.currentLang === 'it'? 'Storia' : 'History'}}</mat-option>
+     <mat-optgroup class="title"  label="Materie" > 
+    <mat-option class="over" value="Sociologia">{{this.currentLang === 'it' ? 'Sociologia': 'Sociology'}}</mat-option>
+    <mat-option class="over" value="Psicologia" >{{this.currentLang === 'it' ? 'Psicologia': 'Psychology'}}</mat-option>
+    <mat-option class="over" value="Filosofia">{{this.currentLang === 'it'? 'Filosofia' : 'Philosophy'}}</mat-option>
+    <mat-option class="over" value="Geografia">{{this.currentLang === 'it'? 'Geografia' : 'geography'}}</mat-option>
+    <mat-option class="over" value="Arte">{{this.currentLang === 'it'? 'Arte' : 'Art'}}</mat-option>
+    <mat-option class="over" value="Informatica">{{this.currentLang === 'it'? 'Informatica': 'Informatics'}}</mat-option>
+    <mat-option class="over" value="Chimica">{{this.currentLang === 'it'? 'Chimica': 'Chemistry'}}</mat-option>
+    <mat-option class="over" value="Storia">{{this.currentLang === 'it'? 'Storia' : 'History'}}</mat-option>
     </mat-optgroup>
 
     </div> 
@@ -32,7 +36,13 @@
     </div>
   </mat-select>
 </mat-form-field>
-<mat-form-field class="mt-5 contenuto">
+
+
+
+
+
+
+<mat-form-field class="mt-5 contenuto ">
   <mat-label>{{this.currentLang === 'it'?'Contenuto' : 'Content'}}</mat-label>
   <textarea  style="overflow: hidden; resize: none;" class="w-100" matInput formControlName="contenuto" ></textarea>
 

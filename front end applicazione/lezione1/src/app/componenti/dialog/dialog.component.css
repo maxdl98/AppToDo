@@ -11,7 +11,7 @@
   width: 290px;
   padding: 10px;
   border-radius: 20px;
-  margin-left: 1700px;
+  margin-left: 1250px;
   position: fixed;
   height: 60px;
   color: white;
@@ -20,7 +20,4 @@
   transition: background-color 0.3s ease;
 }
 
-.newsletter:hover {
-  background-color: rgb(223, 212, 212); /* ✅ colore hover */
-  color: black;
-}
+

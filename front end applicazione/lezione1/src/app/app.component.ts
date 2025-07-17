@@ -10,6 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavComponent } from "./componenti/nav/nav.component";
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
 import { FotologinComponent } from "./componenti/fotologin/fotologin.component";
+import { M } from "../../node_modules/@angular/material/progress-spinner.d-DtYCWeYd";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-root',

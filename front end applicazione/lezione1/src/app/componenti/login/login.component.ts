@@ -9,11 +9,12 @@ import {jwtDecode} from 'jwt-decode';  // corretto import
 import { Router } from '@angular/router';
 import { MatCardModule } from "@angular/material/card";
 import { FotologinComponent } from '../fotologin/fotologin.component';
+import { ProgressSpinnerComponent } from '../progress-spinner/progress-spinner.component';
 
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, MatInputModule, MatCardModule, FotologinComponent],
+  imports: [MatFormFieldModule, CommonModule, ReactiveFormsModule, MatInputModule, MatCardModule, FotologinComponent,ProgressSpinnerComponent],
   standalone : true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

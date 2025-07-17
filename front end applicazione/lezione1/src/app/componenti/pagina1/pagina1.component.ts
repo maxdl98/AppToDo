@@ -22,16 +22,18 @@ export class Pagina1Component implements OnInit {
 
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter(e => e instanceof NavigationEnd)
-    ).subscribe(() => {
+  this.router.events.pipe(
+    filter(e => e instanceof NavigationEnd)
+  ).subscribe(() => {
+    // Aspetta il rendering del DOM prima dello scroll
+    setTimeout(() => {
       const element = document.getElementById('garibaldi');
-
-      if(element){
-        element.scrollIntoView({behavior: 'smooth'})
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-    })
-  }
+    }, 0); // oppure 100ms se ancora non funziona
+  });
+}
   
 
 

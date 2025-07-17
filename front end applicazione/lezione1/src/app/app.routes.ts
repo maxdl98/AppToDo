@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { EsercizioComponent } from './componenti/esercizio/EsercizioComponent';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegistrazioneComponent } from './componenti/registrazione/registrazione.component';
@@ -27,6 +27,7 @@ import { NavComponent } from './componenti/nav/nav.component';
 import { QuizComponent } from './componenti/quiz/quiz.component';
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
 import { FotologinComponent } from './componenti/fotologin/fotologin.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   { path: 'navigazione', component: NavComponent },
