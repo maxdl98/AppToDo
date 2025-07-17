@@ -13,22 +13,6 @@ public class PasswordChange {
     }
 
 
-    public String getVecchiaPassword() {
-        return vecchiaPassword;
-    }
-
-    public void setVecchiaPassword(String vecchiaPassword) {
-        this.vecchiaPassword = vecchiaPassword;
-    }
-
-
-    public String getNuovaPassword() {
-        return nuovaPassword;
-    }
-
-    public void setNuovaPassword(String nuovaPassword) {
-        this.nuovaPassword = nuovaPassword;
-    }
 
 
     @Override

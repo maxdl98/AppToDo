@@ -40,7 +40,11 @@ export class LoginAdminComponent implements OnInit,AfterViewInit {
   }
 
 
-   
+   toPasswordVecchia(){
+    if(this.service.isAdmin){
+      this.route.navigate(['passwordVecchia'])
+    }
+   }
 
 
 

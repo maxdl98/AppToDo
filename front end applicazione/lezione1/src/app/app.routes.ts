@@ -28,10 +28,10 @@ import { QuizComponent } from './componenti/quiz/quiz.component';
 import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/messaggio-automatico.component';
 import { FotologinComponent } from './componenti/fotologin/fotologin.component';
 import { NgModule } from '@angular/core';
+import { RecuperoPasswordComponent } from './componenti/recupero-password/recupero-password.component';
 
 export const routes: Routes = [
   { path: 'navigazione', component: NavComponent },
-
   { path: 'login', component: LoginComponent },
   {path: 'fotologin', component: FotologinComponent},
   { path: 'signin', component: RegistrazioneComponent },
@@ -39,15 +39,13 @@ export const routes: Routes = [
   { path: 'allenamento', component: AllenamentoComponent },
   { path: 'listaUtenti', component: HomeComponent },
   { path: 'ticket', component: TicketComponent },
-  
+  {path: 'passwordVecchia', component : RecuperoPasswordComponent},
   {path: 'messaggioAutomatico', component: MessaggioAutomaticoComponent},
   { path: 'createticket', component: CreateticketComponent },
   { path: 'ticketchiusi', component: TicketchiusiComponent },
-
   { path: 'todo', canActivate: [authGuard], component: EsercizioComponent },
   { path: 'gestisciticket', canActivate: [authGuard], component: TicketricevutiComponent },
   { path: 'loginAdmin', canActivate: [authGuard], component: LoginAdminComponent },
-
   {
     path: 'dash',
     canActivate: [authGuard],

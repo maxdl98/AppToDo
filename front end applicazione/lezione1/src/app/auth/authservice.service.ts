@@ -19,6 +19,8 @@ export interface Page<T> {
 })
 export class AuthserviceService {
 
+  urlCambioPassword = "http://localhost:8080/api/v1/changePassword"
+
   urlQuiz = "http://localhost:8080/api/v1/quiz"
   
   urlExcel = "http://localhost:8080/api/tickets/exportExcel"
@@ -70,7 +72,9 @@ export class AuthserviceService {
 
 
 
-
+  cambioPass(body:{}){
+    return this.http.post(`${this.urlCambioPassword}`,body)
+  }
  
 
   
