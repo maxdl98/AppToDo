@@ -2,6 +2,7 @@
 body{
     background-color: black;
     filter: blur();
+    margin-top: 0px;
 }
 
 
@@ -46,18 +47,19 @@ form{
 
 
 .css-spinner {
-      background: rgba(255, 255, 255, 0.7); /* sfondo semitrasparente se vuoi */
-  border: 10px solid #f3f3f3;
-  border-top: 10px solid #34db47;
-  border-radius: 50%;
-  width: 58px;
-  height: 57px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-  position: relative;
+ background: rgba(255, 255, 255, 0.7); /* sfondo semitrasparente se vuoi */
+border: 10px solid #f3f3f3;
+border-top: 6px solid #34db47;
+border-radius: 50%;
+width: 58px;
+height: 57px;
+animation: spin 1s linear infinite;
+position: relative;
 top: 441px;
 left: 60px;
- z-index: 1000;
+z-index: 1000;
+position:relative;
+left:50%;
 }
 
 @keyframes spin {

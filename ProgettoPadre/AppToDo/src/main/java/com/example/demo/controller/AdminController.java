@@ -113,7 +113,7 @@ public class AdminController {
             response.put("token", token);
 
             try {
-                Thread.sleep(8000);
+                Thread.sleep(6000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
