@@ -9,3 +9,31 @@ html, body {
     background-color: rgb(5, 5, 93);
 }
 
+
+.snackbar-error {
+background-color: #d6dcd6;
+color: rgb(0, 0, 0);
+position: relative;
+bottom: 390px;
+}
+
+.snackbar-success {
+background-color: #d6dcd6;
+color: rgb(0, 0, 0);
+position: relative;
+bottom: 390px;
+}
+
+.rispostagiusta {
+background-color: #28ab28;
+color: rgb(0, 0, 0);
+position: relative;
+bottom: 390px;
+}
+
+.rispostasbagliata {
+background-color: #de1e1e;
+color: rgb(0, 0, 0);
+position: relative;
+bottom: 390px;
+}

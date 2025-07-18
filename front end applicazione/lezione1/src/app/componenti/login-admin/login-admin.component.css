@@ -5,6 +5,10 @@ body{
     margin-top: 0px;
 }
 
+mat-form-field{
+    position: relative;
+    top:10px;
+}
 
 form{
     width: 400px;
@@ -14,7 +18,7 @@ form{
    display: flex;
     flex-direction: column;
     border: solid 2px black;
-    height: 250px;
+    height: 280px;
     width: 400px;
     border-radius: 20px;
     padding: 10px;

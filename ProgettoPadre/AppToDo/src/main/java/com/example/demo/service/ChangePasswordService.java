@@ -21,14 +21,23 @@ public class ChangePasswordService {
 
 
 
-    public Optional <Admin> cambioPassword(String vecchiaPassword, String nuovaPassword){
+    public Optional <Admin> cambioPassword(String vecchiaPassword, String nuovaPassword)throws Exception {
 
         Optional<Admin> Admin = adminService.findByPassword(vecchiaPassword);
 
 
         if((Admin.isPresent())&&(nuovaPassword.length() >= 6)){
-            Admin.get().setPassword(nuovaPassword);
+            if(!vecchiaPassword.trim().equals(nuovaPassword)){
+                Admin.get().setPassword(nuovaPassword);
+                adminService.salvaAdmin(Admin.get());
+
+
+            }
+        } else {
+            throw new Error("c'è un errore");
         }
+
+
 
      return Admin;
 

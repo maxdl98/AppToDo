@@ -27,10 +27,16 @@ public class ChangePasswordController {
 
 
     @PostMapping("/changePassword")
-    public ResponseEntity<Optional<Admin>> changePassword(@RequestBody PasswordChange passwordChange) throws Exception{
-     Optional<Admin> admin =    cservice.cambioPassword(passwordChange.vecchiaPassword,passwordChange.nuovaPassword );
+    public ResponseEntity<Admin> changePassword(@RequestBody PasswordChange passwordChange) throws Exception {
 
-     return new ResponseEntity<>(admin, HttpStatus.OK);
+        if(!passwordChange.vecchiaPassword.equals(passwordChange.nuovaPassword)){
+            Optional<Admin> admin =    cservice.cambioPassword(passwordChange.vecchiaPassword,passwordChange.nuovaPassword );
+            return new ResponseEntity<>(admin.get(), HttpStatus.OK);
+
+        } else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
 
     }
 

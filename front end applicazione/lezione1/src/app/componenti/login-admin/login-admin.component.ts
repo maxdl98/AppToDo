@@ -8,12 +8,16 @@ import { MatInputModule } from '@angular/material/input';
 import { FotologinAdminComponent } from '../fotologin-admin/fotologin-admin.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProgressSpinnerComponent } from '../progress-spinner/progress-spinner.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpStatusCode } from '@angular/common/http';
+import { SnackbarSuccessComponent } from '../snackbar-success/snackbar-success.component';
+import { SnackbarErrorComponent } from '../snackbar-error/snackbar-error.component';
 
 
 @Component({
   selector: 'app-login-admin',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, FotologinAdminComponent,ProgressSpinnerComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, FotologinAdminComponent,ProgressSpinnerComponent,MatSnackBarModule],
   templateUrl: './login-admin.component.html',
   styleUrls: ['./login-admin.component.css']
 })
@@ -25,7 +29,7 @@ export class LoginAdminComponent implements OnInit,AfterViewInit {
 
   adminForm!: FormGroup;
 
-  constructor(private service: AuthserviceService, private route: Router, private cd: ChangeDetectorRef) {}
+  constructor(private service: AuthserviceService, private route: Router, private cd: ChangeDetectorRef, private snackbar:MatSnackBar) {}
   ngAfterViewInit() {
   setTimeout(() => {
     this.cd.detectChanges();
@@ -50,8 +54,11 @@ export class LoginAdminComponent implements OnInit,AfterViewInit {
 
   onSubmit() {
 
-     this.visibleSpinner = true; 
     if (this.adminForm.invalid) return;
+    
+    this.visibleSpinner = true
+
+    
 
     const email = this.adminForm.get('email')?.value;
     const password = this.adminForm.get('password')?.value;
@@ -59,16 +66,41 @@ export class LoginAdminComponent implements OnInit,AfterViewInit {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    this.service.loginAdmin(email, password).subscribe(data => {
+    this.service.loginAdmin(email, password).subscribe({
+      next: (data) => {
+        
+        
+
+        
+ 
+
       console.log("Risposta:", data)
+
+  
 
        this.service.isAdmin = true;
 
        localStorage.setItem('isAdmin','true')
-       
-       if(this.service.isAdmin){
+
+
+       setTimeout(() => {
+         if(this.service.isAdmin){
         this.route.navigate(['gestisciticket'])
        }
+       }, 3000);
+      
+      }, 
+      error: (error:any) => {
+        this.visibleSpinner = false;
+
+        this.snackbar.openFromComponent(SnackbarErrorComponent, {
+          data:'Password non corretta',
+          duration: 2000,
+          panelClass: ['rispostasbagliata']
+        })
+        
+      }
+      
 
 
      

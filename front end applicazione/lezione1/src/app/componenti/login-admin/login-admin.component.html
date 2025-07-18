@@ -4,18 +4,18 @@
 <img   *ngIf="ControlloEmail?.value == emailMia" src="/images/max.jpg" class="imm" alt="fotoMax" width="200" height="200"> 
 <form [formGroup]="adminForm"  style="display: flex; flex-direction: column;">
   <mat-form-field>
-    <mat-label>Email</mat-label>
+    <mat-label class="fs-4">Email</mat-label>
     <input   matInput formControlName="email">
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Password</mat-label>
+    <mat-label class="fs-4">Password</mat-label>
     <input matInput  type="password" formControlName="password">
   </mat-form-field>
 
-  <button (click)="onSubmit()" class="mit" type="submit" mat-raised-button color="primary">Invia</button>
+  <button (click)="onSubmit()" class="mit mt-2" type="submit" mat-raised-button color="primary">Invia</button>
 
-  <span class="ms-5 mt-2"> Hai dimenticato la password? <a (click)="toPasswordVecchia()" class="pointer"> Clicca qui </a></span>
+  <span class="ms-5 mt-4"> Hai dimenticato la password? <a (click)="toPasswordVecchia()" class="pointer"> Clicca qui </a></span>
 </form>
 </div>
 </app-fotologin-admin>
