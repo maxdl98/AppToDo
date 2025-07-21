@@ -33,6 +33,8 @@ public class WebSecurity {
                         .requestMatchers(HttpMethod.POST, "/api/formatore/invioMail").hasRole("Admin")
                         .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori2").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/v1/changePassword").hasRole("Admin")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/salvoDomanda").hasRole("User")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/salvoRisposta").hasRole("User")
 
                         .anyRequest().permitAll()
                 )

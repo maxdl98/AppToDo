@@ -41,10 +41,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         const token = data.token;
        
-        if (typeof token !== 'string' || !token) {
-          console.error('Token non valido:', token);
-          return;
-        }
+       
 
         const decodedToken: any = jwtDecode(token);
         console.log('Scadenza:', new Date(decodedToken.exp * 1000));

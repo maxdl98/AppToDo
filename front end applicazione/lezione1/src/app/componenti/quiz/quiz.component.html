@@ -16,7 +16,8 @@
 
 <!-- Storia  -->
 
-<mat-card  [ngClass]="toPsicologia === true ? 'niente' : 'vabene'"   *ngIf="ToNext" class="quiz-card w-50  h-25 bg-dark-subtle " appearance="outlined">
+
+<mat-card   class="quiz-card w-50  h-25 bg-dark-subtle " appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -40,7 +41,7 @@
 
     <mat-card-actions class="d-flex justify-content-center mt-4">
 
-        <button [ngClass]="quizForm.get('risposta1')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta1')?.invalid"    (click)="onNextStep()" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+        <button [ngClass]="quizForm.get('risposta1')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta1')?.invalid"     mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
     </mat-card-actions>
 </mat-card>
 
@@ -53,7 +54,7 @@
 
 
 
-<mat-card  [ngClass]="toSociologia === true ? 'niente' : 'vabene'"  *ngIf="toPsicologia" class="quiz-card w-75    h-50 bg-dark-subtle" appearance="outlined">
+<mat-card   class="quiz-card w-75    h-50 bg-dark-subtle" appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -77,7 +78,7 @@
 
     <mat-card-actions class="d-flex justify-content-center mt-4">
 
-        <button [ngClass]="quizForm.get('risposta2')?.invalid? 'opaco' : 'normale'"  (click)="onNextSociologia()" [disabled]="quizForm.get('risposta2')?.invalid" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+        <button [ngClass]="quizForm.get('risposta2')?.invalid? 'opaco' : 'normale'"   [disabled]="quizForm.get('risposta2')?.invalid" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
     </mat-card-actions>
 </mat-card>
 
@@ -90,7 +91,7 @@
 
 
 
-<mat-card  [ngClass]="toGeografia === true ? 'niente' : 'vabene'" *ngIf="toSociologia" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+<mat-card   class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -114,7 +115,7 @@
 
     <mat-card-actions class="d-flex justify-content-center mt-4">
 
-        <button [ngClass]="quizForm.get('risposta3')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta3')?.invalid" (click)="onNextGeografia()" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+        <button [ngClass]="quizForm.get('risposta3')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta3')?.invalid"  mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
     </mat-card-actions>
 </mat-card>
 
@@ -125,7 +126,7 @@
 
 
 <!-- Geografia -->
-<mat-card  [ngClass]="toArte === true ? 'niente' : 'vabene'"  *ngIf="toGeografia" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+<mat-card     class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -149,7 +150,7 @@
 
     <mat-card-actions class="d-flex justify-content-center mt-4">
 
-        <button [ngClass]="quizForm.get('risposta4')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta4')?.invalid" (click)="onNextToArte()" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+        <button [ngClass]="quizForm.get('risposta4')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta4')?.invalid"  mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
     </mat-card-actions>
 </mat-card>
 
@@ -157,7 +158,7 @@
 
 
 <!-- Arte -->
-<mat-card  [ngClass]="toInformatica === true ? 'niente' : 'vabene'" *ngIf="toArte" class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+<mat-card    class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -180,7 +181,7 @@
 
     <mat-card-actions class="d-flex justify-content-center mt-4">
 
-        <button [ngClass]="quizForm.get('risposta5')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta5')?.invalid" (click)="onNextStopInformatica()" mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
+        <button [ngClass]="quizForm.get('risposta5')?.invalid? 'opaco' : 'normale'" [disabled]="quizForm.get('risposta5')?.invalid"  mat-raised-button color="primary" type="button" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Avanti</button>
     </mat-card-actions>
 </mat-card>
 
@@ -194,7 +195,7 @@
 
 
 <!-- Informatica -->
-<mat-card [ngClass]="MessaggioAutomatico === true? 'niente' : 'vabene'"  *ngIf="toInformatica"  class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+<mat-card [ngClass]="MessaggioAutomatico === true? 'niente' : 'vabene'"    class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
     <mat-card-header>
         <mat-card-title class="fw-bold fs-4 text-center w-100">
             <!-- Testo della domanda -->
@@ -221,6 +222,58 @@
         <button (click)="cambioMex()"  [ngClass]="quizForm.get('risposta6')?.invalid? 'opaco' : 'normale'"  mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Invia Dati </button>
     </mat-card-actions>
 </mat-card>
+
+
+
+
+
+
+
+
+
+
+<!-- Informatica -->
+
+<mat-card [ngClass]="MessaggioAutomatico === true? 'niente' : 'vabene'"    class="quiz-card w-75  h-50 bg-dark-subtle" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title class="fw-bold fs-4 text-center w-100">
+            <!-- Testo della domanda -->
+            **Informatica:** Cosa significa l'acronimo HTML?
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- Sezione per le risposte multiple (radio buttons HTML standard) -->
+        <mat-radio-group formControlName="risposta6"  class="d-flex flex-column ms-4 mt-3">
+                <mat-radio-button value="Home Tool Transfer Program" class="mb-2">Hyper Text Markup Language</mat-radio-button>
+                <mat-radio-button value="High-Tech Text Processor" class="mb-2">High-Tech Text Markup Processor</mat-radio-button>
+                <mat-radio-button value="Hyperlink Tracking Protocol" class="mb-2">Hyperlink Tracking Mail Protocol</mat-radio-button>
+                <mat-radio-button value="HyperText Transfer Protocol" class="mb-2">Hyper Text Matter Language</mat-radio-button>
+            </mat-radio-group>
+
+        
+       
+       
+       IT
+       
+       Salta link di navigazione
+       musica per studiare
+       
+       
+       
+       
+       Accedi
+       
+
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-center mt-4">
+
+        <button (click)="cambioMex()"  [ngClass]="quizForm.get('risposta6')?.invalid? 'opaco' : 'normale'"  mat-raised-button color="primary" type="submit" class="avanti" style="background-color: aliceblue; border-radius: 20px;">Invia Dati </button>
+    </mat-card-actions>
+</mat-card>
+
+
 
 </form>
 

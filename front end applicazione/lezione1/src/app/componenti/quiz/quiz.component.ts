@@ -42,18 +42,7 @@ risposta6! : FormControl
   
   MessaggioAutomatico: boolean = false;
 
-  toPsicologia : boolean = false; 
-
-  ToNext : boolean = true;
-
-  toSociologia: boolean = false;
-   
-  toGeografia: boolean = false;
-
-  toArte: boolean = false;
-
-  toInformatica: boolean = false;
-
+ 
 
   quizSubmitted : boolean = false;
 
@@ -95,57 +84,6 @@ submitQuiz() {
 
 
 
-  
-
-  avanti(){
-    this.ToNext = true
-  }
-
-  onNextStep(){
-    let risposta1 = this.quizForm.get('risposta1')?.valid
-    if(risposta1){
-    this.toPsicologia = true
-     
-    } 
-  }
-
-  onNextSociologia(){
-        let risposta2 = this.quizForm.get('risposta2')?.valid
-
-     if(risposta2){
-       this.toSociologia = true
-
-    }
-  }
-
-  onNextGeografia(){
-    let risposta3 = this.quizForm.get('risposta3')?.valid
-
-   if(risposta3){
-       this.toGeografia = true
-
-    }
-  }
-
-  onNextToArte(){
-    let risposta4 = this.quizForm.get('risposta4')?.valid
-
-    if(risposta4){
-      this.toArte = true
-    }
-  }
-
-  onNextStopInformatica(){
-        let risposta5 = this.quizForm.get('risposta4')?.valid
-
-     if(risposta5){
-        this.toInformatica = true
-
-    }
-  }
-
-
-  
 
 
 
