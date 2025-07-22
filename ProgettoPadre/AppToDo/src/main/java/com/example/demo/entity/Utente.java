@@ -32,6 +32,11 @@ public class Utente {
     @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MinutiSpesi> sessioniMinuti;
 
+
+
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Punteggio> listaPunteggi;
+
     // Costruttori
     public Utente() {}
 

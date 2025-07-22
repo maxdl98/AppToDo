@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -23,6 +24,7 @@ public class Risposte {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_domande", nullable = false)
+    @JsonBackReference
     private Domande domande;
 
 
@@ -35,6 +37,14 @@ public class Risposte {
 
     public Risposte(){}
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public boolean isFlag() {
         return flag;

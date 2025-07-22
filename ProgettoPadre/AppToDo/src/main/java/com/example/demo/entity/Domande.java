@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 
 import com.example.demo.enums.MaterieEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,20 +21,21 @@ public class Domande {
     @Column(unique = true)
     private String testoDomanda;
 
-    @Enumerated(EnumType.STRING) // o EnumType.ORDINAL
-    private MaterieEnum materia;
+    private String materia;
 
 
     @OneToMany(mappedBy = "domande", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Risposte> listaRisposte;
 
 
 
     public Domande(){}
 
-    public Domande(Long id, String testoDomanda, MaterieEnum materia, List<Risposte> listaRisposte){
+    public Domande(Long id, String testoDomanda, String materia, List<Risposte> listaRisposte){
         this.testoDomanda = testoDomanda;
         this.materia = materia;
+        this.listaRisposte = listaRisposte;
     }
 
     public Domande(Long id) {
@@ -49,11 +51,11 @@ public class Domande {
     }
 
 
-    public MaterieEnum getMateria() {
+    public String getMateria() {
         return materia;
     }
 
-    public void setMateria(MaterieEnum materia) {
+    public void setMateria(String materia) {
         this.materia = materia;
     }
 
@@ -65,12 +67,23 @@ public class Domande {
         this.id = id;
     }
 
+
+    public List<Risposte> getListaRisposte() {
+        return listaRisposte;
+    }
+
+    public void setListaRisposte(List<Risposte> listaRisposte) {
+        this.listaRisposte = listaRisposte;
+    }
+
+
     @Override
     public String toString() {
         return "Domande{" +
                 "id=" + id +
                 ", testoDomanda='" + testoDomanda + '\'' +
                 ", materia='" + materia + '\'' +
+                ", listaRisposte=" + listaRisposte +
                 '}';
     }
 }

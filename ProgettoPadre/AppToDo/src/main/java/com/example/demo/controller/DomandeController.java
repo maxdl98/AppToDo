@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -47,6 +48,33 @@ public class DomandeController {
 
         return new ResponseEntity<>(domanda.get(),HttpStatus.OK);
     }
+
+
+    @GetMapping("/peppeDomande")
+    public Iterable<Domande> findAll(){
+        return dservice.findAll();
+    }
+
+
+    @GetMapping("/randomQuestion")
+   public ResponseEntity<List<Domande>>  getDomandeRandom() throws Exception {
+        List<Domande> domande = dservice.getRandomQuestion();
+
+        return new ResponseEntity<>(domande, HttpStatus.OK);
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
