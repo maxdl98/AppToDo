@@ -1,44 +1,59 @@
 
-
-
-form{
-  border-radius: 20px;
+mat-card{
+  background-color: #a69898;
+    width: 500px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+    top:240px;
+    left:320px;
 }
 
-
-
-.example-card {
-  max-width: 400px;
+mat-card-title{
+  font-family: cursive;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.indietro{
+  background-color: aliceblue;
+  position:relative;
+  left:10px;
+  top:30px;
+  border-radius: 10px;
 }
+
+.avanti{
+  background-color: aliceblue;
+  position:relative;
+  left:280px;
+  top:30px;
+  border-radius: 10px;
+
+}
+
+.indietro:hover{
+  background-color: rgb(25, 135, 84);;
+}
+
 
 .avanti:hover{
-    background-color: rgb(115, 97, 97);
+    background-color: rgb(25, 135, 84);;
+
 }
 
-.niente{
+.buttonInvia{
+  background-color: aliceblue;
+  position:relative;
+  left:280px;
+  top:30px;
+  border-radius: 10px;
+}
+
+
+.scompare{
   display: none;
 }
 
-.quiz-card{
-  margin-left: 426px;
-  margin-top: 300px;
-  border-radius: 20px;
+.buttonInvia:hover{
+      background-color: rgb(25, 135, 84);;
 
 }
-
-.button-nonabilitato{
-  background-color: rgb(241, 228, 228);
-}
-
-.opaco{
-  background-color: gray;
-  color: white;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-

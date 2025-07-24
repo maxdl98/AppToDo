@@ -22,6 +22,7 @@ public class Punteggio {
     private Utente utente;
 
 
+    public Punteggio(){}
 
     public Punteggio(Long id , int punteggio, Utente utente){
         this.id = id;

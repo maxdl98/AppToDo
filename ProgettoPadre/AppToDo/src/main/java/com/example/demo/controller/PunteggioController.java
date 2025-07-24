@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin("http://localhost:4200")
@@ -19,6 +21,7 @@ public class PunteggioController {
 
 
     public PunteggioController(PunteggioService pservice){
+
         this.pservice = pservice;
     }
 
@@ -36,6 +39,14 @@ public class PunteggioController {
 
 
     }
+
+
+    @GetMapping("/classifica")
+    public List<Punteggio> getClassifica(@RequestParam(defaultValue = "10") int topN) {
+        return pservice.getClassifica(topN);
+    }
+
+
 
 
 

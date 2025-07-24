@@ -5,6 +5,7 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import {jwtDecode} from 'jwt-decode';
 import { Observable } from 'rxjs';
+import { Domande } from '../interfacce/interfacce';
 
 export interface Page<T> {
     content: T[];
@@ -19,6 +20,11 @@ export interface Page<T> {
 })
 export class AuthserviceService {
 
+
+  
+
+  urlSavePunteggio = "http://localhost:8080/api/v1/save2"
+
   urlCambioPassword = "http://localhost:8080/api/v1/changePassword"
 
   urlQuiz = "http://localhost:8080/api/v1/quiz"
@@ -31,6 +37,7 @@ export class AuthserviceService {
 
   urlEmail = "http://localhost:8080/api/utenti/sendHtmlEmail"
 
+  urlRandomQuestion = "http://localhost:8080/api/v1/randomQuestion"
 
   urlTickets = "http://localhost:8080/api/tickets/submit"
 
@@ -41,6 +48,7 @@ export class AuthserviceService {
   urlFormatori = "http://localhost:8082/api/formatore/getFormatori2";
 
   urlLoginAdmin = "http://localhost:8080/api/v1/login"
+
 
    percorsi = ['todo','esercizio','allenamento','login','signin',"listaUtenti",'ticket'
       ,'createticket','ticketchiusi','dash','pagina1','pagina2','pagina3','pagina4','pagina5','pagina6','pagina7','pagina8','pagina9','dialog', 'paginanuova'
@@ -69,7 +77,9 @@ export class AuthserviceService {
 
  
 
-
+   savePunteggio(body:{id:number,flag:Domande, id2:Domande}){
+    this.http.post(`${this.urlSavePunteggio}`, body)
+   }
 
 
   cambioPass(body:{}){
@@ -77,7 +87,13 @@ export class AuthserviceService {
   }
  
 
-  
+  randomQuestion() : Observable<Domande[]>{
+      return this.http.get<Domande[]>(`${this.urlRandomQuestion}`);
+
+  }
+
+
+
 
  
   invioMail2(email:string, body : {}){

@@ -41,7 +41,6 @@ public class RisposteService {
             throw new IllegalArgumentException("Domanda non trovata con ID: " + domanda.getId());
         }
 
-        // Assicura che l'entità Domande sia gestita da JPA
         risposta.setDomande(trovoDomanda.get());
 
         return Rrepository.save(risposta);

@@ -1,4 +1,4 @@
-import { CommonModule, JsonPipe, NgClass, NgIf } from '@angular/common';
+import { CommonModule, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, inject, Input, NgModule, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, FormGroupName, FormsModule, NgModel, NgModelGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,91 +10,123 @@ import { AuthserviceService } from '../../auth/authservice.service';
 import { MessaggioAutomaticoComponent } from "../messaggio-automatico/messaggio-automatico.component";
 import { EventEmitter } from 'stream';
 import { MatChipsModule } from '@angular/material/chips';
+import { AuthService } from '../../token/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Domande, Risposta, Utente} from '../../interfacce/interfacce';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-quiz',
-  imports: [MatCardModule, MatCardModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, ReactiveFormsModule, JsonPipe, NgIf, NgClass, FormsModule, MatButtonModule, FormsModule, MatCardModule, MatButtonModule, MatRadioModule,CommonModule,MessaggioAutomaticoComponent],
+  imports: [MatCardModule, MatCardModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, ReactiveFormsModule, JsonPipe, NgIf, NgClass, FormsModule, MatButtonModule, FormsModule, MatCardModule, MatButtonModule, MatRadioModule,CommonModule,MessaggioAutomaticoComponent,MatInputModule,MatCheckboxModule],
   standalone: true,
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })
-export class QuizComponent {
+export class QuizComponent implements OnInit {
+  id2! : Utente 
+
+  idDomanda! : number[]
+  fineQuiz : boolean = false;
+
+    risposteSelezionate: { idDomanda: number; risposta: Risposta }[] = [];
 
 
+  domande! : Domande[];
+  currentIndex = 0;
+  id! : number[];
+  testoDomanda! : string[];
+  materia! : string[];
+  listaRisposte! : Risposta[]
 
- 
-
-
-constructor(private service:AuthserviceService){
-
-}
-  
-messaggioPersonalizzato = "Hai completato il quiz. Ti contatteremo presto!";
-
- 
-
-risposta1! : FormControl
-risposta2! : FormControl
-risposta3! : FormControl
-risposta4! : FormControl
-risposta5! : FormControl
-risposta6! : FormControl
-  
-  MessaggioAutomatico: boolean = false;
-
- 
-
-  quizSubmitted : boolean = false;
+  risposte!:Risposta[]
 
 
-quizForm = new FormGroup({
-   risposta1 : new FormControl('', Validators.required),
-  risposta2: new FormControl('', Validators.required),
-  risposta3 : new FormControl('', Validators.required),
-  risposta4 : new FormControl('',Validators.required),
-  risposta5 : new FormControl('', Validators.required),
-  risposta6: new FormControl('', Validators.required)
-   
-  
-  
-})
+ constructor(private service:AuthserviceService, private http:HttpClient){
 
-
-submitQuiz() {
-
-    const risposte = {
-    risposta1: this.quizForm.value.risposta1,
-    risposta2: this.quizForm.value.risposta2,
-    risposta3: this.quizForm.value.risposta3,
-    risposta4: this.quizForm.value.risposta4,
-    risposta5: this.quizForm.value.risposta5,
-    risposta6: this.quizForm.value.risposta6
-  };
- 
-  
- 
-  this.service.inviaQuiz(risposte).subscribe({
-    next: (data : any) => {
-      console.log(data);
-    }
-  })
-  
-  
-}
-
-
-
-
-
-
- cambioMex(){
-  this.MessaggioAutomatico = true;
-
-  
-  
  }
+  ngOnInit(): void {
+    this.service.randomQuestion().subscribe((data : Domande[]) => {
 
+  
+      this.domande = data
+    
+      console.log(this.domande)
+
+      this.currentIndex = 0;
+
+
+       
+     
+      
+
+      
+      const userString = localStorage.getItem('userId')
+
+        if(userString){
+          this.id2 = JSON.parse(userString)
+        }
+
+
+
+
+
+          
+
+        
+       
+   
+
+
+
+
+    });
+
+       
+
+    
+    
+    
+
+
+    
+
+  
+    }
+
+   toggleSelezione(risposta: Risposta, checked: boolean) {
+
+     
+
+   }
+
+
+     prossimaDomanda() {
+    if (this.currentIndex < this.domande.length - 1) {
+      this.currentIndex++;
+      
+     
+    }
+
+    
+  }
+
+  domandaPrecedente() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+   
+
+
+    
 
 
 
 }
+
+
+
+
+
