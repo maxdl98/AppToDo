@@ -31,6 +31,10 @@ public class Punteggio {
     }
 
 
+
+
+
+
     public Utente getUtente() {
         return utente;
     }

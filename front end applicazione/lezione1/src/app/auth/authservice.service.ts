@@ -77,8 +77,8 @@ export class AuthserviceService {
 
  
 
-   savePunteggio(body:{id:number,flag:Domande, id2:Domande}){
-    this.http.post(`${this.urlSavePunteggio}`, body)
+   savePunteggio(body:{ punteggio: { utente: { id: number; }; }; id: number; flag: boolean; }) {
+     return this.http.post(`${this.urlSavePunteggio}`, body)
    }
 
 

@@ -19,6 +19,10 @@ public class PunteggioRispostaRequest {
         this.id = id;
     }
 
+    public PunteggioRispostaRequest(Long id, boolean flag) {
+        this.id = id;
+        this.flag = flag;
+    }
 
     public Punteggio getPunteggio() {
         return punteggio;

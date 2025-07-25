@@ -1,11 +1,14 @@
 <mat-card *ngIf="domande && domande.length > 0" class="example-card" appearance="outlined">
   <mat-card-header>
-    <mat-card-title>{{ domande[currentIndex]?.testoDomanda }}</mat-card-title>
+    <mat-card-title>{{ domande[currentIndex]?.testoDomanda}}</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
   </mat-card-header>
  <mat-card-content>
    <div *ngFor="let risposta of domande[currentIndex]?.listaRisposte">
-    <mat-checkbox [checked]="">{{risposta.risposta}} </mat-checkbox>
+    <mat-checkbox [checked]="isChecked(domande[currentIndex], risposta)"
+      (change)="toggleSelezione(domande[currentIndex], risposta)">
+      {{ risposta.risposta }}
+  </mat-checkbox>
    </div>
 
 
@@ -15,11 +18,12 @@
    <button class="indietro" mat-button color="accent" (click)="domandaPrecedente()" [disabled]="currentIndex === 0">
       Indietro
     </button>
-    <button class="avanti" mat-button color="primary" (click)="prossimaDomanda()" [ngClass]="this.currentIndex === domande.length - 1? 'scompare' : 'avanti'">
+    <button class="avanti" mat-button color="primary"  (click)="prossimaDomanda()" [ngClass]="this.currentIndex === domande.length - 1? 'scompare' : 'avanti'">
       Avanti
     </button>
-    <button class="buttonInvia" mat-button color="primary" *ngIf="this.currentIndex === domande.length - 1"> Invia </button>
-
+  <button (click)="prossimaDomanda()"  class="buttonInvia" mat-button color="primary" *ngIf="currentIndex === domande.length - 1">
+      Invia
+    </button>
 
  </mat-card-actions>
 

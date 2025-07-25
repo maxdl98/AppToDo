@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,19 +26,14 @@ public class PunteggioController {
         this.pservice = pservice;
     }
 
-
     @PostMapping("/save2")
-    public ResponseEntity<Punteggio> save(@RequestBody PunteggioRispostaRequest punteggioRispostaRequest){
+    public ResponseEntity<?> save(@RequestBody PunteggioRispostaRequest punteggioRispostaRequest) {
+
+            pservice.save(punteggioRispostaRequest.getPunteggio(), punteggioRispostaRequest.getFlag(), punteggioRispostaRequest.getId());
 
 
 
-        Punteggio p = pservice.save(punteggioRispostaRequest.getPunteggio(), punteggioRispostaRequest.getFlag(), punteggioRispostaRequest.getId());
-
-        return new ResponseEntity<>(p, HttpStatus.OK);
-
-
-
-
+        return new ResponseEntity<>( punteggioRispostaRequest.getPunteggio(), HttpStatus.OK);
     }
 
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket',
-  imports: [MatLabel,CommonModule,MatSidenavModule,MatFormFieldModule,ReactiveFormsModule,MatInputModule,MatIconModule],
+  imports: [CommonModule,MatSidenavModule,MatFormFieldModule,ReactiveFormsModule,MatInputModule,MatIconModule],
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.css'
 })
