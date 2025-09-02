@@ -13,6 +13,38 @@ mat-card-title{
   font-family: cursive;
 }
 
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+
+
+.button1{
+  width: 80px;
+  border-radius: 20px;
+}
+.button2{
+  width: 80px;
+  border-radius:20px;
+
+}
+
+.button1:hover{
+  background-color: rgb(25, 135, 84);
+}
+
+.button2:hover{
+  background-color: rgb(25, 135, 84);
+}
+
+.none{
+  display: none;
+}
+
 .indietro{
   background-color: aliceblue;
   position:relative;
@@ -54,6 +86,6 @@ mat-card-title{
 }
 
 .buttonInvia:hover{
-      background-color: rgb(25, 135, 84);;
+      background-color: rgb(25, 135, 84);
 
 }

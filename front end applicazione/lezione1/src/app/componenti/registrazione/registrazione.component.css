@@ -1,29 +1,110 @@
 
-body{
-    background-color: black;
+
+body {
+  margin: 10;
+  padding: 10;
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-form{
-    width: 400px;
-    position: absolute;
-    left: 600px;
-    top: 300px;
+
+/* Card esteticamente curata */
+.form-card {
+  background-color: rgb(25, 135, 84); /* Verde scuro elegante */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Ombra verde tenue */
+  width: 100%;
+  max-width: 500px;
+  color: #ffffff;
+   position: relative;
+    left:550px;
+}
+
+
+
+
+
+/* Titolo */
+mat-card-title.text-center {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Pulsante invio */
+.button {
+  align-self: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background-color: hotpink !important;
+  color: white;
+}
+
+/* Link accesso */
+.access-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.access-link span {
+  color: hotpink;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.access-link span:hover {
+  color: #ff80bf;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
 
 }
 
-.button{
-    width: 120px;
-    border-radius: 20px;
-    height: 30px;
-    position: relative;
-    left: 110px;
+.elementi:hover{
+    background-color: rgb(25, 135, 84);;
 }
 
-.button:hover{
-    background-color: hotpink;
-    cursor: pointer;
+div mat-option:hover{
+  background-color: rgb(25, 135, 84);;
+
 }
 
-.regione{
-    background-color: white;
+.error{
+color:red;
+font-size: 20px;
+
 }
 

@@ -1,62 +1,68 @@
-<form [formGroup]="userForm" style="display: flex; flex-direction: column;"> 
- <mat-form-field>
-  <mat-label>Nome</mat-label>
-  <input matInput type="text"  name="nome" formControlName="nome" >
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Email</mat-label>
-  <input matInput type="email"  name="email" formControlName="email" >
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Data di nascita</mat-label>
-  <input matInput type="date"  name="data" formControlName = "data">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Numero di telefono</mat-label>
-  <input matInput type="text"  name="numero" formControlName = "numero">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Regione di Provenienza</mat-label>
-  <mat-select [panelClass]="'custom-select-panel'" formControlName = "regione">
-    <div class="regione"> 
-    <mat-option class="regione1" value="one">Valle d'Aosta</mat-option>
-    <mat-option value="Piemonte">Piemonte</mat-option>
-    <mat-option value="Liguria">Liguria</mat-option>
-    <mat-option value="Lombardia">Lombardia</mat-option>
-    <mat-option value="Trentino Alto-Adige">Trentino Alto Adige</mat-option>
-    <mat-option value="Veneto">Veneto</mat-option>
-    <mat-option value="Friuli-Venezia Giulia">Friuli-Venezia Giulia</mat-option>
-    <mat-option value="Emilia-Romagna">Emilia-Romagna</mat-option>
-    <mat-option value="Toscana">Toscana</mat-option>
-    <mat-option value="Umbria">Umbria</mat-option>
-    <mat-option value="Marche">Marche</mat-option>
-    <mat-option value="Lazio">Lazio</mat-option>
-    <mat-option value="Abruzzo">Abruzzo</mat-option>
-    <mat-option value="Molise">Molise</mat-option>
-    <mat-option value="Campania">Campania</mat-option>
-    <mat-option value="Puglia ">Puglia</mat-option>
-    <mat-option value="Basilicata">Basilicata</mat-option>
-    <mat-option value="Calabria">Calabria</mat-option>
-    <mat-option value="Sicilia">Sicilia</mat-option>
-    <mat-option value="Sardegna">Sardegna</mat-option>
+<mat-card class="form-card">
+  <mat-card-title class="text-center">REGISTRAZIONE</mat-card-title>
+  <form [formGroup]="userForm" class="form">
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="nome" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required>
+      <mat-error class="error" *ngIf="userForm.get('email')?.hasError('email')">Email non valida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data di nascita</mat-label>
+      <input matInput type="date" formControlName="data" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Numero di telefono</mat-label>
+      <input matInput type="text" formControlName="numero" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Regione di Provenienza</mat-label>
+      <mat-select formControlName="regione" required>
+        <div class="elementi" style="background-color: white;"> 
+        <mat-option value="Valle d'Aosta">Valle d'Aosta</mat-option>
+        <mat-option value="Piemonte">Piemonte</mat-option>
+        <mat-option value="Liguria">Liguria</mat-option>
+        <mat-option value="Lombardia">Lombardia</mat-option>
+        <mat-option value="Trentino Alto-Adige">Trentino Alto-Adige</mat-option>
+        <mat-option value="Veneto">Veneto</mat-option>
+        <mat-option value="Friuli-Venezia Giulia">Friuli-Venezia Giulia</mat-option>
+        <mat-option value="Emilia-Romagna">Emilia-Romagna</mat-option>
+        <mat-option value="Toscana">Toscana</mat-option>
+        <mat-option value="Umbria">Umbria</mat-option>
+        <mat-option value="Marche">Marche</mat-option>
+        <mat-option value="Lazio">Lazio</mat-option>
+        <mat-option value="Abruzzo">Abruzzo</mat-option>
+        <mat-option value="Molise">Molise</mat-option>
+        <mat-option value="Campania">Campania</mat-option>
+        <mat-option value="Puglia">Puglia</mat-option>
+        <mat-option value="Basilicata">Basilicata</mat-option>
+        <mat-option value="Calabria">Calabria</mat-option>
+        <mat-option value="Sicilia">Sicilia</mat-option>
+        <mat-option value="Sardegna">Sardegna</mat-option>
+        </div>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="button" (click)="onSubmit()">Invia</button>
+
+    <div class="access-link">
+      <p>Hai già un account?
+        <span (click)="redirectToLogin()">Effettua l'accesso</span>
+      </p>
     </div>
-  </mat-select>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Password</mat-label>
-  <input matInput type="password"  name="password" formControlName = "password">
-</mat-form-field>
 
-
-
-<button class="button" mat-raised-button color="primary" (click)="onSubmit()">Invia</button>
-
-<div class="mt-3"> 
-  <p> Hai già un account?  <span (click)="redirectToLogin()" style="text-decoration: underline; cursor: pointer;"> Effettua l'accesso </span></p>
-</div>
-
-
-
-
-
-</form>
+  </form>
+</mat-card>

@@ -14,6 +14,7 @@ public interface DomandeRepository extends CrudRepository<Domande,Long> {
 
     Optional<Domande> findById(Long id);
 
+    public void deleteById(Long id);
 
 
 

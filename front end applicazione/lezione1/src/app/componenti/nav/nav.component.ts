@@ -13,6 +13,8 @@ import { AuthserviceService } from '../../auth/authservice.service';
 export class NavComponent {
   urlExcel = "http://localhost:8080/api/tickets/exportExcel"
   urlPdf = "http://localhost:8080/api/tickets/exportPdf"
+
+  urlPdf1 = "http://localhost:8080/api/v1/classificaPdf"
  
   
  constructor(private route:Router, private service:AuthserviceService) {
@@ -36,6 +38,22 @@ export class NavComponent {
     },
     error: (err) => {
       console.error('Errore nel download Excel:', err);
+    }
+  });
+}
+
+downloadPdf1(){
+  this.service.downloadPdf1(this.urlPdf1).subscribe({
+    next: (blob:Blob) => {
+   const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'classifica.pdf'; // nome del file
+    a.click();
+    window.URL.revokeObjectURL(url);
+    },
+    error: (err) =>{
+      console.error("errore nel download del pdf", err);
     }
   });
 }

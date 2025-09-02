@@ -37,9 +37,15 @@ public class DomandeService {
     }
 
 
+    public void deleteById(Long id)throws Exception{
+        drepository.deleteById(id);
+    }
+
+
     public Optional<Domande> findById(Long id){
         return drepository.findById(id);
     }
+
 
     public List<Domande> getRandomQuestion() throws Exception{
 

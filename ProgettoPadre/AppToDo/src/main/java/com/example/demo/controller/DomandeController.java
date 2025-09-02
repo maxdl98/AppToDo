@@ -50,10 +50,18 @@ public class DomandeController {
     }
 
 
+    @DeleteMapping("/deleteDomanda/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable Long id) throws Exception{
+         dservice.deleteById(id);
+        return new ResponseEntity<String>("La domanda con il seguenti id: " + id  + "è stata eliminata", HttpStatus.OK);
+    }
+
+
     @GetMapping("/peppeDomande")
     public Iterable<Domande> findAll(){
         return dservice.findAll();
     }
+
 
 
     @GetMapping("/randomQuestion")

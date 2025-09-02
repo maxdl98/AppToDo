@@ -1,0 +1,24 @@
+
+<mat-card  *ngIf="listaDomande.length > 0 && listaDomande"  class="card1" appearance="outlined">
+  <mat-card-header> 
+    <mat-card-title class="fw-bold fs-4">{{listaDomande[currentIndex].materia}}</mat-card-title>
+    <mat-card-title>{{listaDomande[currentIndex].testoDomanda}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p></p>
+  </mat-card-content>
+  <mat-card-footer class="example-card-footer">
+    
+  </mat-card-footer>
+
+    <mat-card-content>
+    <div  *ngFor="let risposta of listaDomande[currentIndex].listaRisposte">
+      <mat-checkbox (change)="onChangeBox( listaDomande[currentIndex],risposta, $event)"  [checked]="isChecked(risposta, listaDomande[currentIndex])">{{ risposta.risposta }}</mat-checkbox>
+    </div>
+  </mat-card-content>
+
+  <button (click)="prossimaDomanda()"> Avanti </button>
+  <button (click)="domandaPrecedente()" > Indietro </button>
+
+</mat-card>
+

@@ -1,25 +1,29 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.PunteggiDto;
+import com.example.demo.dto.UtenteDto;
 import com.example.demo.entity.Admin;
+import com.example.demo.entity.Punteggio;
 import com.example.demo.entity.Utente;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.service.AdminService;
+import com.example.demo.service.PunteggioService;
+import com.example.demo.service.UtentiService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
+import java.util.*;
 
 
 @RestController
@@ -31,6 +35,8 @@ public class AdminController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     @Autowired
     private final AdminService aservice;
@@ -38,10 +44,18 @@ public class AdminController {
     @Autowired
     private final AdminRepository arepository;
 
+    @Autowired
+    private final UtentiService uservice;
 
-    public AdminController(AdminService aservice, AdminRepository arepository){
+    @Autowired
+    private final PunteggioService pservice;
+
+
+    public AdminController(AdminService aservice, AdminRepository arepository, PunteggioService pservice, UtentiService uservice){
         this.aservice = aservice;
         this.arepository = arepository;
+        this.pservice = pservice;
+        this.uservice = uservice;
     }
 
 
@@ -78,6 +92,54 @@ public class AdminController {
         } else{
              throw new Error("c'è un errore");
         }
+
+    }
+
+
+    @PostMapping("/invioMailAutomatica")
+    public ResponseEntity<String> invioMail() throws Exception{
+
+        try{
+            String email = "";
+            List<PunteggiDto> informazioni = pservice.getClassificaDto(3);
+            for(PunteggiDto p:informazioni){
+                MimeMessage message = javaMailSender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+
+
+
+                helper.setFrom("delucamassimo9880@gmail.com");
+
+                helper.setSubject("C'è un premio per te che sarei arrivato tra i primi 3");
+                email = p.getEmail();
+                helper.setTo(p.getEmail());
+
+                String risposta = "Hai vinto un fantastico premio, scegli tra:" +
+                        "1) Apple Watch" +
+                        "2): Smart Tv + " +
+                        "3) Cuffie bluethoot";
+
+                helper.setText(risposta,false);
+
+
+                javaMailSender.send(message);
+
+
+            }
+
+
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+        return new ResponseEntity<String>("Email inviata con successo!", HttpStatus.OK);
+
+
+
+
 
     }
 

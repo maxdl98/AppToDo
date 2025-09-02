@@ -5,7 +5,10 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import {jwtDecode} from 'jwt-decode';
 import { Observable } from 'rxjs';
-import { Domande } from '../interfacce/interfacce';
+import { Domande, Punteggio, Punteggio2, Utente2 } from '../interfacce/interfacce';
+import { UtenteDto } from '../interfacce/utenteDto';
+import { DomandeDto } from '../interfacce/DomandeDto';
+import { formatoreDto } from '../interfacce/formatoreDto';
 
 export interface Page<T> {
     content: T[];
@@ -15,13 +18,24 @@ export interface Page<T> {
   size: number;         
   numberOfElements: number;
 }
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
 
+  urlDeleteAllPunteggiUtenti = "http://localhost:8080/api/v1/deletePunteggi"
 
-  
+   urlInvioMailAutomatica = "http://localhost:8080/api/v1/invioMailAutomatica"
+
+    urlTrovaUtente = "http://localhost:8080/api/v1/trovaUtente"
+
+
+
+  urlAllUtenti = "http://localhost:8080/api/utenti/getAll"
+
+  urlAllPunteggi = "http://localhost:8080/api/v1/getAllPunteggi"
 
   urlSavePunteggio = "http://localhost:8080/api/v1/save2"
 
@@ -48,6 +62,12 @@ export class AuthserviceService {
   urlFormatori = "http://localhost:8082/api/formatore/getFormatori2";
 
   urlLoginAdmin = "http://localhost:8080/api/v1/login"
+
+  urlClassificaDto = "http://localhost:8080/api/v1/classifica"
+
+  urlDeletePunteggi = "http://localhost:8080/api/v1/deletePunteggi"
+
+  urlFormatori2 = "http://localhost:8081/api/formatore/getFormatori"
 
 
    percorsi = ['todo','esercizio','allenamento','login','signin',"listaUtenti",'ticket'
@@ -77,19 +97,64 @@ export class AuthserviceService {
 
  
 
-   savePunteggio(body:{ punteggio: { utente: { id: number; }; }; id: number; flag: boolean; }) {
+   savePunteggio(body:{ punteggio: { utente: { id: number; }; }; id_domanda: number; flag: boolean; }) {
      return this.http.post(`${this.urlSavePunteggio}`, body)
    }
+
+
+  trovaUtenti(id: number): Observable<string> {
+  return this.http.get(`${this.urlTrovaUtente}/${id}`, { responseType: 'text' });
+}
+
+
+
+   getUtenti(): Observable<Utente2[]> {
+  return this.http.get<Utente2[]>(`${this.urlAllUtenti}`);
+}
+
+getUtenti2(): Observable<UtenteDto[]> {
+  return this.http.get<UtenteDto[]>(`${this.urlAllUtenti}`)
+}
+
+
+getPunteggio():Observable<Punteggio[]>{
+  return this.http.get<Punteggio[]>(`${this.urlAllPunteggi}`)
+}
+
+
+
+invioMailAutomatica(): Observable<string> {
+  return this.http.post(`${this.urlInvioMailAutomatica}`, {}, {
+    responseType: 'text'
+  });
+}
+
+classificaDto():Observable<Punteggio2[]>{
+  return this.http.get<Punteggio2[]>(`${this.urlClassificaDto}`)
+}
+
+deleteAll(): Observable<string> {
+  return this.http.delete(`${this.urlDeleteAllPunteggiUtenti}`, { responseType: 'text' });
+}
+
 
 
   cambioPass(body:{}){
     return this.http.post(`${this.urlCambioPassword}`,body)
   }
+
+ 
+
+
  
 
   randomQuestion() : Observable<Domande[]>{
       return this.http.get<Domande[]>(`${this.urlRandomQuestion}`);
 
+  }
+
+  randomQuestion1() : Observable<DomandeDto[]>{
+    return this.http.get<DomandeDto[]>(`${this.urlRandomQuestion}`)
   }
 
 
@@ -113,6 +178,12 @@ export class AuthserviceService {
    return this.http.get(url,{
     responseType: 'blob'
    } )
+  }
+
+  downloadPdf1(url:string){
+    return this.http.get(url,{
+      responseType : 'blob'
+    })
   }
 
 
@@ -172,6 +243,13 @@ export class AuthserviceService {
   getFormatori(page:number, size:number) : Observable<any>{
   const url = `${this.urlFormatori}?page=${page}&size=${size}`;
     return this.http.get<Page<any>>(url);
+  }
+
+
+  getFormatori2(page:number, size:number) :Observable<Page<formatoreDto>>{
+    const url = `${this.urlFormatori2}?page=${page}&size=${size}`;
+    return this.http.get<Page<formatoreDto>>(url);
+
   }
 
   

@@ -19,6 +19,7 @@ public class WebSecurityDev {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
                         .anyRequest().permitAll()
+
                 );
 
         return http.build();

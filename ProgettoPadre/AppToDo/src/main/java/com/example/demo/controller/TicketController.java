@@ -5,7 +5,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.example.demo.entity.Operatore;
 import com.example.demo.entity.Ticket;
-import com.example.demo.repository.DatiDto;
+import com.example.demo.dto.DatiDto;
 import com.example.demo.repository.DatiTickets;
 import com.example.demo.repository.TicketRepository;
 import com.example.demo.service.TicketService;
@@ -196,7 +196,7 @@ public class TicketController {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         Document document = new Document();
-        PdfWriter.getInstance(document, out);
+        PdfWriter.getInstance(document,out);
         document.open();
 
         // Esempio di intestazione
@@ -226,6 +226,9 @@ public class TicketController {
 
         return new ResponseEntity<>(out.toByteArray(), headers, HttpStatus.OK);
     }
+
+
+
 
 
 

@@ -37,3 +37,9 @@ color: rgb(0, 0, 0);
 position: relative;
 bottom: 390px;
 }
+
+@media (min-width: 220px) and (max-width:788px) {
+  .footer{
+    background-color: red;
+  }
+}

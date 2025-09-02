@@ -7,11 +7,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router'; // CORRETTO
 import { LoginComponent } from '../login/login.component';
 import { MatOption, MatSelectModule } from '@angular/material/select';
+import { MatCard, MatCardModule } from '@angular/material/card';
 
 
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule,LoginComponent,MatSelectModule,MatOption],
+  imports: [ReactiveFormsModule,MatInputModule,CommonModule,RouterModule,LoginComponent,MatSelectModule,MatOption,MatCardModule],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })

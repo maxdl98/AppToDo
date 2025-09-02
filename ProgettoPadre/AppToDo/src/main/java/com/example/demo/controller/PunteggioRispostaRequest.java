@@ -10,17 +10,19 @@ public class PunteggioRispostaRequest {
 
     private Punteggio punteggio;
 
-    private Long id;
+    private Long id_domanda;
+
+
 
      public PunteggioRispostaRequest(){}
-    public PunteggioRispostaRequest(boolean flag, Punteggio punteggio,  Long id) {
+    public PunteggioRispostaRequest(Punteggio punteggio,boolean flag,  Long id_domanda) {
         this.flag = flag;
         this.punteggio = punteggio;
-        this.id = id;
+        this.id_domanda = id_domanda;
     }
 
-    public PunteggioRispostaRequest(Long id, boolean flag) {
-        this.id = id;
+    public PunteggioRispostaRequest(Long id_domanda, boolean flag) {
+        this.id_domanda = id_domanda;
         this.flag = flag;
     }
 
@@ -42,12 +44,12 @@ public class PunteggioRispostaRequest {
     }
 
 
-    public Long getId() {
-        return id;
+    public Long getId_domanda() {
+        return id_domanda;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_domanda(Long id) {
+        this.id_domanda = id;
     }
 
 
@@ -56,7 +58,7 @@ public class PunteggioRispostaRequest {
         return "PunteggioRispostaRequest{" +
                 "flag=" + flag +
                 ", punteggio=" + punteggio +
-                ", id=" + id +
+                ", id_domanda=" + id_domanda +
                 '}';
     }
 }

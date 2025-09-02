@@ -30,3 +30,16 @@ mat-drawer{
 .bandiera{
   margin-left: 10px;
 }
+
+
+
+@media (min-width: 0px) and (max-width: 740px){
+  .schermata{
+    width: 100%;
+  }
+}
+
+
+
+
+

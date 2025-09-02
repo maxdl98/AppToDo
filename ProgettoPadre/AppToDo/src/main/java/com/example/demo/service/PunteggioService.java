@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.itextpdf.text.pdf.PdfPTable;
 
+import com.example.demo.dto.PunteggiDto;
 import com.example.demo.entity.Domande;
 import com.example.demo.entity.Punteggio;
 import com.example.demo.entity.Risposte;
@@ -15,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class PunteggioService {
@@ -40,7 +41,6 @@ public class PunteggioService {
         this.uservice = uservice;
         this.dservice = dservice;
     }
-
 
 
     public Punteggio save(Punteggio punteggio, boolean flagUtente, Long idDomanda) {
@@ -81,13 +81,33 @@ public class PunteggioService {
     }
 
 
-
-
-
-    public List<Punteggio> getClassifica(int topN) {
+    public List<PunteggiDto> getClassificaDto(int topN) {
         Pageable pageable = PageRequest.of(0, topN);
-        return prepository.findAllByOrderByPunteggioDesc(pageable);
+        return prepository.findAllByOrderByPunteggioDesc(pageable).stream()
+                .map(p -> new PunteggiDto(p.getUtente().getNome(), p.getPunteggio(), p.getUtente().getEmail()))
+                .toList();
+
+
     }
+
+
+    public void deleteAll(){
+
+
+        prepository.deleteAll();
+    }
+
+
+    public List<Punteggio> getAll() throws Exception{
+        return prepository.findAll();
+    }
+
+    public boolean utenteHaGiaRisposto(Long utenteId) {
+        System.out.println("Controllo se l'utente " + utenteId + " ha già risposto");
+        return prepository.existsByUtente_Id(utenteId);
+    }
+
+
 
 }
 

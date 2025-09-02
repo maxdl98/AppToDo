@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UtenteDto;
 import com.example.demo.entity.MinutiSpesi;
 import com.example.demo.entity.Utente;
+import com.example.demo.repository.UtenteJpaRepository;
 import com.example.demo.repository.UtenteRepository;
 import com.example.demo.service.SmsRequest;
 import com.example.demo.service.SmsSent;
@@ -38,11 +40,13 @@ public class UtentiController {
 
     private final UtentiService utenteService;
     private final UtenteRepository utenteRepository;
+    private final UtenteJpaRepository utenteJpaRepository;
 
     @Autowired
-    public UtentiController(UtentiService utenteService, UtenteRepository utenteRepository) {
+    public UtentiController(UtentiService utenteService, UtenteRepository utenteRepository, UtenteJpaRepository utenteJpaRepository) {
         this.utenteService = utenteService;
         this.utenteRepository = utenteRepository;
+        this.utenteJpaRepository = utenteJpaRepository;
     }
     
 
@@ -310,4 +314,25 @@ public class UtentiController {
         return ResponseEntity.ok(response);
 
     }
+
+
+    @GetMapping("/classificaData")
+    public ResponseEntity<List<UtenteDto>> getClassifica(@RequestParam int topN) throws Exception{
+     List<UtenteDto> uti = utenteService.getClassifica(topN);
+
+     return ResponseEntity.ok( uti);
+    }
+
+
+
+
+    @GetMapping("/getAllUtenti")
+    public ResponseEntity<List<Utente>> getAllUtenti2()throws Exception{
+        List<Utente> listaUtenti = utenteJpaRepository.findAll();
+
+        return new ResponseEntity<>(listaUtenti,HttpStatus.OK);
+    }
+
+
+
 }

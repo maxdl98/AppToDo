@@ -20,7 +20,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/formatore")
-@CrossOrigin("http://localhost:4200")
 public class FormatoreController {
 
     private final FormatoreService service;
@@ -125,6 +124,11 @@ public class FormatoreController {
 
        return service.getFormatore2(page,size);
 
+    }
+
+    @GetMapping("/getFormatori3")
+    public Page<Formatore> getAllFormatori2(@RequestParam int page, @RequestParam int size){
+        return service.getFormatore3(page,size);
     }
 
 

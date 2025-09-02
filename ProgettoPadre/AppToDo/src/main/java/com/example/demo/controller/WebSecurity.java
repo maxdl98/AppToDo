@@ -27,6 +27,7 @@ public class WebSecurity {
         http
                 .cors(customizer -> {}) //
                 .authorizeHttpRequests(authz -> authz
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/utenti/uti").hasRole("User")
                         .requestMatchers(HttpMethod.GET, "/api/v1/login").hasRole("Admin")
                         .requestMatchers(HttpMethod.GET, "/api/utenti/Messaggio").hasRole("User")
@@ -37,6 +38,7 @@ public class WebSecurity {
                         .requestMatchers(HttpMethod.POST, "/api/v1/changePassword").hasRole("Admin")
                         .requestMatchers(HttpMethod.POST, "/api/v1/salvoDomanda").hasRole("User")
                         .requestMatchers(HttpMethod.POST, "/api/v1/salvoRisposta").hasRole("User")
+                        .requestMatchers(HttpMethod.GET, "/api/formatore/getFormatori3").hasRole("User")
 
                         .anyRequest().permitAll()
                 )

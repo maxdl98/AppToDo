@@ -12,7 +12,7 @@ import { EventEmitter } from 'stream';
 import { MatChipsModule } from '@angular/material/chips';
 import { AuthService } from '../../token/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Domande, Risposta, Utente, RisposteSelezionate} from '../../interfacce/interfacce';
+import { Domande, Risposta, Utente, RisposteSelezionate, Utente2} from '../../interfacce/interfacce';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
@@ -25,11 +25,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class QuizComponent implements OnInit {
 
+
+
+
+
   id2! : Utente 
 
   idDomanda! : number
   fineQuiz : boolean = false;
-
+  
+  inizioQuiz : boolean = false;
 
 
   risposteSelezionate! : RisposteSelezionate 
@@ -65,7 +70,6 @@ export class QuizComponent implements OnInit {
     console.error("Errore parsing userId:", e);
   }
 }
-// metodi API Richieste 
 
     this.service.randomQuestion().subscribe((data : Domande[]) => {
 
@@ -98,16 +102,30 @@ export class QuizComponent implements OnInit {
 }
 
 
+trovaUtente(){
+this.service.trovaUtenti(this.id2.id).subscribe({
+  next: (response) => {
+    console.log(response);
+    
+  }
+});
+
+}
+
+
 
   prossimaDomanda() {
+    
   const domandaCorrente = this.domande[this.currentIndex];
   const idDomanda = domandaCorrente.id;
   const idUtente = this.id2.id;
 
+ 
+
   const idRispostaSelezionata = this.risposteUtente[idDomanda];
 
   if (idRispostaSelezionata === undefined) {
-    console.warn("Nessuna risposta selezionata per questa domanda.");
+    console.warn("n essuna risposta selezionata per questa domanda.");
     return; // oppure puoi mostrare un messaggio per forzare la selezione
   }
 
@@ -127,27 +145,87 @@ export class QuizComponent implements OnInit {
         id: idUtente
       }
     },
-    id: idDomanda,
+    id_domanda: idDomanda,
     flag: rispostaSelezionata.flag
   };
 
   this.service.savePunteggio(body).subscribe({
     next: (response) => {
-      console.log("Punteggio aggiornato", response);
+      console.log("aggiornato", response);
 
-      // Vai avanti solo se è stata salvata la risposta
       if (this.currentIndex < this.domande.length - 1) {
         this.currentIndex++;
       } else {
         this.fineQuiz = true; 
         console.log('finish')
+
+
+       this.checkCompletamentoGlobale();
+
+
+       
+
+   
+
       }
     },
     error: (err) => {
       console.error("Errore nel salvataggio del punteggio", err);
     }
   });
+
+   
+
+
+
+
+
 }
+
+
+
+checkCompletamentoGlobale() {
+  this.service.getUtenti().subscribe({
+    next: (utenti) => {
+      this.service.getPunteggio().subscribe({
+        next: (punteggi) => {
+          const utentiUnici = new Set(punteggi.map(p => p.id_utente));
+          console.log(`Utenti che hanno risposto: ${utentiUnici.size}/${utenti.length}`);
+
+          if (utentiUnici.size === utenti.length) {
+            console.log("tutti gli utenti hanno risposto");
+          } else {
+            console.log("non tutti hanno ancora risposto");
+          }
+        },
+        error: (err) => console.error("Errore punteggi:", err)
+      });
+    },
+    error: (err) => console.error("Errore utenti:", err)
+  });
+}
+
+
+
+invioMail(){
+  this.service.invioMailAutomatica().subscribe({
+   next : (data:string) => console.log(data)
+
+  });
+
+  this.service.classificaDto().subscribe({  
+    next: (punteggi) => console.log(punteggi)
+  });
+}
+
+
+deletePunteggi(){
+  this.service.deleteAll().subscribe({
+    next: (del) => console.log(del)
+  })
+}
+
+
 
 
 
@@ -158,10 +236,13 @@ domandaPrecedente() {
   }
 
 
-isChecked(domanda: Domande, risposta: Risposta): boolean 
-{
+isChecked(domanda: Domande, risposta: Risposta): boolean {
   return this.risposteUtente[domanda.id] === risposta.id;
   
+}
+
+goToDomande(){
+  this.inizioQuiz = true;
 }
 
 

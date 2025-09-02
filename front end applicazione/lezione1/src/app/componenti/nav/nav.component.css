@@ -17,12 +17,18 @@
 .excel{
   text-decoration: underline;
     position: relative;
-    right: 33px;
+    right: 45px;
     top: 7px;
     
 }
 
 .pdf{
+  text-decoration: underline;
+    position: relative;
+    right: 30px;
+    top: 7px;
+}
+.punteggio{
   text-decoration: underline;
     position: relative;
     right: 20px;

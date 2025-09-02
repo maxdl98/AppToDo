@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "punteggio")
@@ -22,15 +22,16 @@ public class Punteggio {
     private Utente utente;
 
 
+
+
     public Punteggio(){}
 
     public Punteggio(Long id , int punteggio, Utente utente){
         this.id = id;
         this.punteggio = punteggio;
         this.utente = utente;
+
     }
-
-
 
 
 

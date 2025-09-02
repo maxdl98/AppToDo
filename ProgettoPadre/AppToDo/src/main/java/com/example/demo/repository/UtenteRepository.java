@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -21,7 +22,12 @@ public interface UtenteRepository extends CrudRepository<Utente,Long>{
 	Optional<Utente> findById(Long id);
 
 
+
+
 	public void  deleteAll();
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,6 +21,7 @@ export class Pagina1Component implements OnInit {
 
 
 
+
   ngOnInit(): void {
   this.router.events.pipe(
     filter(e => e instanceof NavigationEnd)
@@ -33,6 +34,20 @@ export class Pagina1Component implements OnInit {
       }
     }, 0); // oppure 100ms se ancora non funziona
   });
+}
+
+
+goToGaribaldi(){
+
+  const garibaldiParagrafo = document.getElementById('garibaldi');
+
+
+  if(garibaldiParagrafo){
+        garibaldiParagrafo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  }
+
+  
 }
   
 

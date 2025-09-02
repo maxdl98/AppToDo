@@ -34,6 +34,13 @@ public class FormatoreService   {
         return formatoreRepository.findAll(PageRequest.of(page,size));
     }
 
+    public Page<Formatore> getFormatore3(int page, int size){
+        return formatoreRepository.findAll((PageRequest.of(page,size)));
+
+    }
+
+
+
 
 
 

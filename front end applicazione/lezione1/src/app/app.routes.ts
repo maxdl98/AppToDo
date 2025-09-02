@@ -29,15 +29,21 @@ import { MessaggioAutomaticoComponent } from './componenti/messaggio-automatico/
 import { FotologinComponent } from './componenti/fotologin/fotologin.component';
 import { NgModule } from '@angular/core';
 import { RecuperoPasswordComponent } from './componenti/recupero-password/recupero-password.component';
+import { TabellaUtentiComponent } from './componenti/tabella-utenti/tabella-utenti.component';
+import { PaginaprovaComponent } from './componenti/paginaprova/paginaprova.component';
+import { Ticketchiusi2Component } from './componenti/ticketchiusi2/ticketchiusi2.component';
 
 export const routes: Routes = [
   { path: 'navigazione', component: NavComponent },
+  {path:'tabellaUtenti', component: TabellaUtentiComponent},
   { path: 'login', component: LoginComponent },
   {path: 'fotologin', component: FotologinComponent},
   { path: 'signin', component: RegistrazioneComponent },
+  {path: 'paginaprova', component: PaginaprovaComponent},
   { path: 'esercizio', component: EsercizioComponent },
   { path: 'allenamento', component: AllenamentoComponent },
   { path: 'listaUtenti', component: HomeComponent },
+  {path: 'table' , component: Ticketchiusi2Component},
   { path: 'ticket', component: TicketComponent },
   {path: 'passwordVecchia', component : RecuperoPasswordComponent},
   {path: 'messaggioAutomatico', component: MessaggioAutomaticoComponent},

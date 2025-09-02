@@ -14,6 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { link } from 'fs';
 import { CreateticketComponent } from '../createticket/createticket.component';
 import { NavComponent } from "../nav/nav.component";
+import { h } from "../../../../node_modules/@angular/material/module.d-jogvLnOv";
+import { MatOption, MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +32,9 @@ import { NavComponent } from "../nav/nav.component";
     MatButtonModule,
     CommonModule,
     MatCardModule,
-    NavComponent
+    NavComponent,
+    MatSelectModule,
+    MatOption
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -137,7 +141,7 @@ export class DashboardComponent {
   
 
   onLogout() {
-    this.route.navigate(['login']);
+    this.route.navigate(['table']);
   }
 
   
